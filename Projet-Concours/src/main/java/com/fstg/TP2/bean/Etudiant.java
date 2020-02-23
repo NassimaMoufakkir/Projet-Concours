@@ -1,3 +1,5 @@
+//test
+//test2
 package com.fstg.TP2.bean;
 
 import javax.persistence.Entity;
