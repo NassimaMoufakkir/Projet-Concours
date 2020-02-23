@@ -10,7 +10,7 @@ import com.fstg.TP2.bean.Inscription;
 
 @Repository
 public interface InscriptionDao extends JpaRepository<Inscription, Long> {
-	public Inscription findByCne(String reference);
+	public Inscription findByReference(String reference);
 
 	public List<Inscription> findAll();
 
