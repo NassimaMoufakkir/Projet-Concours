@@ -1,7 +1,5 @@
 package com.fstg.TP2.service.impl;
 
-package ma.techmind.projet.service.impl;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
