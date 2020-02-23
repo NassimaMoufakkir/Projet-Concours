@@ -1,6 +1,4 @@
-
 package com.fstg.TP2.bean;
-
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,43 +7,37 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class ModuleConcours {
+public class ConfigConcours {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@ManyToOne
-	private Module module;
-	@ManyToOne
 	private Concours concours;
-	private int coef;
+	@ManyToOne
+	private Module module;
+	private Double coeffecient;
 
-	public ModuleConcours() {
+	
+	public Double getCoeffecient() {
+		return coeffecient;
+	}
+
+	public void setCoeffecient(Double coeffecient) {
+		this.coeffecient = coeffecient;
+	}
+
+	public ConfigConcours() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ModuleConcours(Long id, Module module, Concours concours, int coef) {
-		super();
-		this.id = id;
-		this.module = module;
-		this.concours = concours;
-		this.coef = coef;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Module getModule() {
-		return module;
-	}
-
-	public void setModule(Module module) {
-		this.module = module;
 	}
 
 	public Concours getConcours() {
@@ -56,12 +48,14 @@ public class ModuleConcours {
 		this.concours = concours;
 	}
 
-	public int getCoef() {
-		return coef;
+	public Module getModule() {
+		return module;
 	}
 
-	public void setCoef(int coef) {
-		this.coef = coef;
+	public void setModule(Module module) {
+		this.module = module;
 	}
+
+	
 
 }
