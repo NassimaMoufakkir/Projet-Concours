@@ -17,7 +17,7 @@ public class InscriptionServiceImpl implements InscriptionService {
 	
 	@Override
 	public Inscription findByReference(String reference) {
-		return inscriptionDao.findByCne(reference);
+		return inscriptionDao.findByReference(reference);
 	}
 
 	@Override
