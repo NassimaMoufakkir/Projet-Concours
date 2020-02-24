@@ -1,13 +1,13 @@
-package com.example.demo.service.impl;
+package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.bean.Concours;
-import com.example.demo.bean.NoteEtudiantConcours;
-import com.example.demo.dao.NoteEtudiantConcoursDao;
-import com.example.demo.service.facade.NoteEtudiantConcoursService;
+import com.fstg.TP2.bean.Concours;
+import com.fstg.TP2.bean.NoteEtudiantConcours;
+import com.fstg.TP2.dao.NoteEtudiantConcoursDao;
+import com.fstg.TP2.service.facade.NoteEtudiantConcoursService;
 
 public class NoteEtudiantConcoursServiceImpl implements NoteEtudiantConcoursService {
 	@Autowired

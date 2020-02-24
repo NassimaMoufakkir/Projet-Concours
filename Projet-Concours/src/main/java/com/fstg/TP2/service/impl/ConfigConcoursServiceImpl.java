@@ -1,14 +1,14 @@
-package com.example.demo.service.impl;
+package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.bean.Concours;
-import com.example.demo.bean.ConfigConcours;
-import com.example.demo.dao.ConfigConcoursDao;
-import com.example.demo.service.facade.ConcoursService;
-import com.example.demo.service.facade.ConfigConcoursService;
+import com.fstg.TP2.bean.Concours;
+import com.fstg.TP2.bean.ConfigConcours;
+import com.fstg.TP2.dao.ConfigConcoursDao;
+import com.fstg.TP2.service.facade.ConcoursService;
+import com.fstg.TP2.service.facade.ConfigConcoursService;
 
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Autowired
