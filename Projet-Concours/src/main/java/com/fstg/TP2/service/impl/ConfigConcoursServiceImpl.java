@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.ConfigConcours;
+import com.fstg.TP2.bean.Module;
 import com.fstg.TP2.dao.ConfigConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.ConfigConcours;
+import com.fstg.TP2.bean.Module;
 
 
 @Repository
