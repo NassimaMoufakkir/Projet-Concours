@@ -9,5 +9,6 @@ public interface EtudiantService {
 
 	public List<Etudiant> findAll();
 
+	public int save (Etudiant etudiant);
 
 }

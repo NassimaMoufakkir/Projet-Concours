@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Etudiant;
+import com.fstg.TP2.bean.Inscription;
 import com.fstg.TP2.dao.EtudiantDao;
 import com.fstg.TP2.service.facade.EtudiantService;
 
 @Service
-public class EtudiantServiceImpl implements EtudiantService{
+public class EtudiantServiceImpl implements EtudiantService {
 	@Autowired
 	public EtudiantDao etudiantDao;
 
@@ -23,6 +24,17 @@ public class EtudiantServiceImpl implements EtudiantService{
 	public List<Etudiant> findAll() {
 		return etudiantDao.findAll();
 	}
-	
 
+	@Override
+	public int save(Etudiant etudiant) {
+
+		Etudiant foundedEtudiant = findByCne(etudiant.getCne());
+		if (foundedEtudiant != null) {
+			return -1;
+		} else {
+			etudiantDao.save(etudiant);
+			return 1;
+		}
+
+	}
 }

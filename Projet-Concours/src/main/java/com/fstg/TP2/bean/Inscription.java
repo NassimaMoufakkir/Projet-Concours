@@ -68,4 +68,13 @@ public class Inscription {
 		this.dateInscription = dateInscription;
 	}
 
+	public Etudiant getEtudiant() {
+		return etudiant;
+	}
+
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
+	}
+	
+
 }
