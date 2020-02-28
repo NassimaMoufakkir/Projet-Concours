@@ -1,6 +1,5 @@
 package com.fstg.TP2.bean;
 
-//nassima lghzala
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
@@ -19,11 +19,13 @@ public class Concours {
 	private String reference;
 	@Temporal(TemporalType.DATE)
 	private Date anneeConcours;
-	@OneToMany //(mappedBy = "concours")
+	@OneToMany(mappedBy = "concours")
 	private List<Etudiant> etudiants;
+	
 	private String description;
 
-	
+	@OneToOne
+	private ConfigConcours configConcours;
 	// getters 
 	private int nbreEtudiantAdmisOrale;
 	private int nbreEtudiantAdmisEcrit;

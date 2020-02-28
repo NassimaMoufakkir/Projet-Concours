@@ -13,10 +13,13 @@ public class ModuleConcours {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@ManyToOne
 	private Module module;
+	
 	@ManyToOne
 	private Concours concours;
+	
 	private int coef;
 
 	public ModuleConcours() {

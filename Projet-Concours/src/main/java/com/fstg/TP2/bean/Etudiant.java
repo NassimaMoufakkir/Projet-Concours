@@ -1,9 +1,13 @@
 package com.fstg.TP2.bean;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 //hello
 @Entity
@@ -19,7 +23,7 @@ public class Etudiant {
 	//getters setters
 	private double note;
 	
-	
+	@ManyToOne
 	private TypeDiplome typeDiplome;
 
 	public Etudiant() {
