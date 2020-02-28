@@ -23,6 +23,14 @@ public class Concours {
 	private List<Etudiant> etudiants;
 	private String description;
 
+	
+	// getters 
+	private int nbreEtudiantAdmisOrale;
+	private int nbreEtudiantAdmisEcrit;
+	private int nbreEtudiantAdmis;
+	
+	private Filiere filiere;
+	
 	public Concours() {
 		super();
 	}

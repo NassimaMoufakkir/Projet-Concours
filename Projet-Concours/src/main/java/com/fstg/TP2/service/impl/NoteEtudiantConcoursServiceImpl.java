@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fstg.TP2.bean.Concours;
-import com.fstg.TP2.bean.NoteEtudiantConcours;
+import com.fstg.TP2.bean.NoteModuleConcours;
 import com.fstg.TP2.dao.NoteEtudiantConcoursDao;
 import com.fstg.TP2.service.facade.NoteEtudiantConcoursService;
 
@@ -15,17 +15,17 @@ public class NoteEtudiantConcoursServiceImpl implements NoteEtudiantConcoursServ
 	
 
 	@Override
-	public List<NoteEtudiantConcours> findByEtudiantCne(String cne) {
+	public List<NoteModuleConcours> findByEtudiantCne(String cne) {
 		return noteEtudiantConcoursDao.findByEtudiantCne(cne);
 	}
 
 	@Override
-	public List<NoteEtudiantConcours> findByConcours(Concours concours) {
+	public List<NoteModuleConcours> findByConcours(Concours concours) {
 		return noteEtudiantConcoursDao.findByConcours(concours);
 	}
 
 	@Override
-	public NoteEtudiantConcours findByNote(Double note) {
+	public NoteModuleConcours findByNote(Double note) {
 		return noteEtudiantConcoursDao.findByNote(note);
 	}
 

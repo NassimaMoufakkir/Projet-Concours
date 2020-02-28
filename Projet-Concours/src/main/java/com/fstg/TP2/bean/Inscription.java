@@ -23,12 +23,18 @@ public class Inscription {
 	@Temporal(TemporalType.DATE)
 	private Date dateInscription;
 
+	
+	//ajout getters setters
+	private double noteGlobale;
+	private String resultat;
+	private int nbreModule;
+
 	public Inscription() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Inscription(Long id, String reference, Concours concours,  Date dateInscription) {
+	public Inscription(Long id, String reference, Concours concours, Date dateInscription) {
 		super();
 		this.id = id;
 		this.reference = reference;
@@ -75,6 +81,5 @@ public class Inscription {
 	public void setEtudiant(Etudiant etudiant) {
 		this.etudiant = etudiant;
 	}
-	
 
 }

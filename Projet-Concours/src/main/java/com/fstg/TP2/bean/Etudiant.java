@@ -15,6 +15,12 @@ public class Etudiant {
 	private String nom;
 	private String prenom;
 	private int age;
+	
+	//getters setters
+	private double note;
+	
+	
+	private TypeDiplome typeDiplome;
 
 	public Etudiant() {
 		super();

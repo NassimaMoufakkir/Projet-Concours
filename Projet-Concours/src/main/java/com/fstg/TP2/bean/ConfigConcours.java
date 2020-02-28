@@ -11,32 +11,81 @@ public class ConfigConcours {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	private TypeDiplome typeDiplome;
+	private double noteMin;
+	private double nbreMaxAdmis;
+	private double nbreMaxEcritAdmis;
+	private double nbreMaxOraleAdmis;
+	
 	@ManyToOne
 	private Concours concours;
-	@ManyToOne
-	private Module module;
-	private Double coeffecient;
-
 	
-	public Double getCoeffecient() {
-		return coeffecient;
-	}
-
-	public void setCoeffecient(Double coeffecient) {
-		this.coeffecient = coeffecient;
-	}
+	
 
 	public ConfigConcours() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	
+	public ConfigConcours(Long id, TypeDiplome typeDiplome, double noteMin, double nbreMaxAdmis,
+			double nbreMaxEcritAdmis, double nbreMaxOraleAdmis, Concours concours) {
+		super();
+		this.id = id;
+		this.typeDiplome = typeDiplome;
+		this.noteMin = noteMin;
+		this.nbreMaxAdmis = nbreMaxAdmis;
+		this.nbreMaxEcritAdmis = nbreMaxEcritAdmis;
+		this.nbreMaxOraleAdmis = nbreMaxOraleAdmis;
+		this.concours = concours;
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public TypeDiplome getTypeDiplome() {
+		return typeDiplome;
+	}
+
+	public void setTypeDiplome(TypeDiplome typeDiplome) {
+		this.typeDiplome = typeDiplome;
+	}
+
+	public double getNoteMin() {
+		return noteMin;
+	}
+
+	public void setNoteMin(double noteMin) {
+		this.noteMin = noteMin;
+	}
+
+	public double getNbreMaxAdmis() {
+		return nbreMaxAdmis;
+	}
+
+	public void setNbreMaxAdmis(double nbreMaxAdmis) {
+		this.nbreMaxAdmis = nbreMaxAdmis;
+	}
+
+	public double getNbreMaxEcritAdmis() {
+		return nbreMaxEcritAdmis;
+	}
+
+	public void setNbreMaxEcritAdmis(double nbreMaxEcritAdmis) {
+		this.nbreMaxEcritAdmis = nbreMaxEcritAdmis;
+	}
+
+	public double getNbreMaxOraleAdmis() {
+		return nbreMaxOraleAdmis;
+	}
+
+	public void setNbreMaxOraleAdmis(double nbreMaxOraleAdmis) {
+		this.nbreMaxOraleAdmis = nbreMaxOraleAdmis;
 	}
 
 	public Concours getConcours() {
@@ -47,13 +96,8 @@ public class ConfigConcours {
 		this.concours = concours;
 	}
 
-	public Module getModule() {
-		return module;
-	}
 
-	public void setModule(Module module) {
-		this.module = module;
-	}
+	
 
 	
 
