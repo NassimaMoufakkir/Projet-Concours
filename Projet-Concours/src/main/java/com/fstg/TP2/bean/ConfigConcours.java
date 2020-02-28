@@ -28,7 +28,6 @@ public class ConfigConcours {
 
 	public ConfigConcours() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	

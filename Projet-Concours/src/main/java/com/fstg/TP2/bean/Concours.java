@@ -25,7 +25,6 @@ public class Concours {
 
 	public Concours() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Concours(Long id, String reference, Date anneeConcours, List<Etudiant> etudiants, String description) {

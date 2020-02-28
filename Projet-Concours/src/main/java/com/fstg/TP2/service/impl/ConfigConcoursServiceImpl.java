@@ -1,25 +1,30 @@
 package com.fstg.TP2.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.ConfigConcours;
+import com.fstg.TP2.bean.Etudiant;
 import com.fstg.TP2.bean.Module;
 import com.fstg.TP2.dao.ConfigConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
+import com.fstg.TP2.service.facade.EtudiantService;
 
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Autowired
 	private ConfigConcoursDao configConcoursDao;
 	@Autowired
 	private ConcoursService concoursService;
+	@Autowired
+	private EtudiantService etudiantService;
 
 	@Override
-	public List<ConfigConcours> findByConcours(Concours concours) {
-		return configConcoursDao.findByConcours(concours);
+	public List<ConfigConcours> findByConcoursReference(String reference) {
+		return configConcoursDao.findByConcoursReference(reference);
 	}
 
 	@Override
@@ -28,9 +33,20 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	}
 
 	@Override
-	public int save(ConfigConcours configConcours) {
+	public int save(Concours concours, List<ConfigConcours> configConcours) {
 		return 0;
 	}
-	
+
+	@Override
+	public boolean validateConfigConcours(Concours concours, List<ConfigConcours> configConcours) {
+		List<ConfigConcours> valideConcours = configConcours.stream()
+				.filter(cc -> concoursService.findByReference(cc.getConcours().getReference()) != null).collect(Collectors.toList());
+		return valideConcours.size() == configConcours.size();
+	}
+
+	@Override
+	public int deleteByConcoursReference(String reference) {
+		return configConcoursDao.deleteByConcoursReference(reference);
+	}
 
 }

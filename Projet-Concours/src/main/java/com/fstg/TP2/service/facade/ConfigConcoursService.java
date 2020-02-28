@@ -7,10 +7,14 @@ import com.fstg.TP2.bean.ConfigConcours;
 import com.fstg.TP2.bean.Module;
 
 public interface ConfigConcoursService {
-	public List<ConfigConcours> findByConcours(Concours concours);
+	public List<ConfigConcours> findByConcoursReference(String reference);
 
 	public List<ConfigConcours> findByModule(Module module);
 
-	public int save(ConfigConcours configConcours);
+	public int save(Concours concours, List<ConfigConcours> configConcours);
+
+	public boolean validateConfigConcours(Concours concours, List<ConfigConcours> configConcours);
+
+	public int deleteByConcoursReference(String reference);
 
 }

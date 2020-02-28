@@ -20,7 +20,6 @@ public class NoteEtudiantConcours {
 
 	public NoteEtudiantConcours() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
