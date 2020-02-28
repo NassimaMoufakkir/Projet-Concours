@@ -1,7 +1,7 @@
 package com.fstg.TP2.bean;
 
 //okkk ù
-// okkkkkkk
+// okkkkkkkkkk
 
 import java.util.Date;
 import java.util.List;
