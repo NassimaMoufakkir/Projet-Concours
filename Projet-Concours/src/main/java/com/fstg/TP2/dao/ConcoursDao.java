@@ -12,5 +12,5 @@ import com.fstg.TP2.bean.Concours;
 @Repository
 public interface ConcoursDao extends JpaRepository<Concours, Long> {
 	public Concours findByReference(String reference);
-	public List<Concours> findByAnneeConcours(Date anneeConcours);
+	public List<Concours> findByAnnee(int annee);
 }

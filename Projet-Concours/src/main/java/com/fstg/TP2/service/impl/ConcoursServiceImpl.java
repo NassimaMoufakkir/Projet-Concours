@@ -37,14 +37,14 @@ public class ConcoursServiceImpl implements ConcoursService {
 	}
 	
 	@Override
-	public List<Concours> findByAnneeConcours(Date anneeConcours) {
-		return concoursDao.findByAnneeConcours(anneeConcours);
+	public List<Concours> findByAnneeConcours(int anneeConcours) {
+		return concoursDao.findByAnnee(anneeConcours);
 	}
 
 	@Override
 	public int save(Concours concours) {
 		Concours foundedConcours = findByReference(concours.getReference());
-		Etudiant etudiant = etudiantService.findByCne(((Etudiant) concours.getEtudiants()).getCne());
+		//Etudiant etudiant = etudiantService.findByCne(((Etudiant) concours.getEtudiants()).getCne());
 		if (foundedConcours != null) {
 			return -1;
 		} 

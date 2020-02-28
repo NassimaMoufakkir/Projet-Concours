@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -18,32 +19,114 @@ public class Concours {
 	private Long id;
 	private String reference;
 	@Temporal(TemporalType.DATE)
-	private Date anneeConcours;
-	@OneToMany(mappedBy = "concours")
-	private List<Etudiant> etudiants;
+	private Date dateConcours;
+	@Temporal(TemporalType.DATE)
+	private Date dateOrale;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateEcrit;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateAffichageResultatFinal;
+	
+	private int annee;
+	
+
 	
 	private String description;
 
 	@OneToOne
 	private ConfigConcours configConcours;
-	// getters 
 	private int nbreEtudiantAdmisOrale;
 	private int nbreEtudiantAdmisEcrit;
 	private int nbreEtudiantAdmis;
-	
+	@ManyToOne
 	private Filiere filiere;
 	
-	public Concours() {
-		super();
+	
+	
+	public Date getDateConcours() {
+		return dateConcours;
 	}
 
-	public Concours(Long id, String reference, Date anneeConcours, List<Etudiant> etudiants, String description) {
+	public void setDateConcours(Date dateConcours) {
+		this.dateConcours = dateConcours;
+	}
+
+	public Date getDateOrale() {
+		return dateOrale;
+	}
+
+	public void setDateOrale(Date dateOrale) {
+		this.dateOrale = dateOrale;
+	}
+
+	public Date getDateEcrit() {
+		return dateEcrit;
+	}
+
+	public void setDateEcrit(Date dateEcrit) {
+		this.dateEcrit = dateEcrit;
+	}
+
+	public Date getDateAffichageResultatFinal() {
+		return dateAffichageResultatFinal;
+	}
+
+	public void setDateAffichageResultatFinal(Date dateAffichageResultatFinal) {
+		this.dateAffichageResultatFinal = dateAffichageResultatFinal;
+	}
+
+	public int getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(int annee) {
+		this.annee = annee;
+	}
+
+	public ConfigConcours getConfigConcours() {
+		return configConcours;
+	}
+
+	public void setConfigConcours(ConfigConcours configConcours) {
+		this.configConcours = configConcours;
+	}
+
+	public int getNbreEtudiantAdmisOrale() {
+		return nbreEtudiantAdmisOrale;
+	}
+
+	public void setNbreEtudiantAdmisOrale(int nbreEtudiantAdmisOrale) {
+		this.nbreEtudiantAdmisOrale = nbreEtudiantAdmisOrale;
+	}
+
+	public int getNbreEtudiantAdmisEcrit() {
+		return nbreEtudiantAdmisEcrit;
+	}
+
+	public void setNbreEtudiantAdmisEcrit(int nbreEtudiantAdmisEcrit) {
+		this.nbreEtudiantAdmisEcrit = nbreEtudiantAdmisEcrit;
+	}
+
+	public int getNbreEtudiantAdmis() {
+		return nbreEtudiantAdmis;
+	}
+
+	public void setNbreEtudiantAdmis(int nbreEtudiantAdmis) {
+		this.nbreEtudiantAdmis = nbreEtudiantAdmis;
+	}
+
+	public Filiere getFiliere() {
+		return filiere;
+	}
+
+	public void setFiliere(Filiere filiere) {
+		this.filiere = filiere;
+	}
+
+	public Concours() {
 		super();
-		this.id = id;
-		this.reference = reference;
-		this.anneeConcours = anneeConcours;
-		this.etudiants = etudiants;
-		this.description = description;
 	}
 
 	public Long getId() {
@@ -60,22 +143,6 @@ public class Concours {
 
 	public void setReference(String reference) {
 		this.reference = reference;
-	}
-
-	public Date getAnneeConcours() {
-		return anneeConcours;
-	}
-
-	public void setAnneeConcours(Date anneeConcours) {
-		this.anneeConcours = anneeConcours;
-	}
-
-	public List<Etudiant> getEtudiants() {
-		return etudiants;
-	}
-
-	public void setEtudiants(List<Etudiant> etudiants) {
-		this.etudiants = etudiants;
 	}
 
 	public String getDescription() {

@@ -13,14 +13,11 @@ public class ModuleConcours {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
 	@ManyToOne
 	private Module module;
-	
 	@ManyToOne
 	private Concours concours;
-	
-	private int coef;
+	private double coef;
 
 	public ModuleConcours() {
 		super();
@@ -59,11 +56,11 @@ public class ModuleConcours {
 		this.concours = concours;
 	}
 
-	public int getCoef() {
+	public double getCoef() {
 		return coef;
 	}
 
-	public void setCoef(int coef) {
+	public void setCoef(double coef) {
 		this.coef = coef;
 	}
 

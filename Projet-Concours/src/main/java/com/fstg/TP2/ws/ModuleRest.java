@@ -10,7 +10,7 @@ import com.fstg.TP2.bean.Module;
 import com.fstg.TP2.service.facade.ModuleService;
 
 @RestController
-@RequestMapping("concours/module")
+@RequestMapping("concours-api/module")
 
 public class ModuleRest {
 	@Autowired

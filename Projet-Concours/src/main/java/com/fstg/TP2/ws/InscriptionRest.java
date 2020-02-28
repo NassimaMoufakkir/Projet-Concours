@@ -14,7 +14,7 @@ import com.fstg.TP2.bean.Inscription;
 import com.fstg.TP2.service.facade.InscriptionService;
 
 @RestController
-@RequestMapping("concours/inscription")
+@RequestMapping("concours-api/inscription")
 
 public class InscriptionRest {
 

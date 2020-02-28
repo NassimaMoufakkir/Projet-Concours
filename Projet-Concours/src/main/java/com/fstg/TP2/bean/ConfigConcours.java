@@ -8,57 +8,41 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class ConfigConcours {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@OneToMany(mappedBy="configConcours")
-	private List <TypeDiplome> typeDiplome;
-	
+	@ManyToOne
+	private TypeDiplome typeDiplome;
 
 	
 	private double noteMin;
 	private double nbreMaxAdmis;
 	private double nbreMaxEcritAdmis;
 	private double nbreMaxOraleAdmis;
+	@ManyToOne
+	private Concours concours;
 	
 	
 	
 
+	public TypeDiplome getTypeDiplome() {
+		return typeDiplome;
+	}
+	public void setTypeDiplome(TypeDiplome typeDiplome) {
+		this.typeDiplome = typeDiplome;
+	}
 	public ConfigConcours() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	public ConfigConcours(Long id, TypeDiplome typeDiplome, double noteMin, double nbreMaxAdmis,
-			double nbreMaxEcritAdmis, double nbreMaxOraleAdmis, Concours concours) {
-		super();
-		this.id = id;
-		this.typeDiplome = typeDiplome;
-		this.noteMin = noteMin;
-		this.nbreMaxAdmis = nbreMaxAdmis;
-		this.nbreMaxEcritAdmis = nbreMaxEcritAdmis;
-		this.nbreMaxOraleAdmis = nbreMaxOraleAdmis;
-		this.concours = concours;
-	}
-
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public TypeDiplome getTypeDiplome() {
-		return typeDiplome;
-	}
-
-	public void setTypeDiplome(TypeDiplome typeDiplome) {
-		this.typeDiplome = typeDiplome;
 	}
 
 	public double getNoteMin() {

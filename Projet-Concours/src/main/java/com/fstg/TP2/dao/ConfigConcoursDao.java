@@ -12,7 +12,6 @@ import com.fstg.TP2.bean.Module;
 
 @Repository
 public interface ConfigConcoursDao extends JpaRepository<ConfigConcours, Long> {
-	public List<ConfigConcours> findByModule(Module module);
 	public List<ConfigConcours> findByConcoursReference(String reference);
 	public int deleteByConcoursReference(String reference);
 

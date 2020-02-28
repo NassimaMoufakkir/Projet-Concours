@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.ConfigConcours;
@@ -13,7 +14,7 @@ import com.fstg.TP2.dao.ConfigConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
 import com.fstg.TP2.service.facade.EtudiantService;
-
+@Service
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Autowired
 	private ConfigConcoursDao configConcoursDao;
@@ -25,11 +26,6 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Override
 	public List<ConfigConcours> findByConcoursReference(String reference) {
 		return configConcoursDao.findByConcoursReference(reference);
-	}
-
-	@Override
-	public List<ConfigConcours> findByModule(Module module) {
-		return configConcoursDao.findByModule(module);
 	}
 
 	@Override

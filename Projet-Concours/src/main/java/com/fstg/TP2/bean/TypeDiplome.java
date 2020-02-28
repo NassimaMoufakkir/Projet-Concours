@@ -13,8 +13,7 @@ public class TypeDiplome {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;	
 	private String libelle;
-	@ManyToOne
-	private ConfigConcours configConcours;
+	
 	
 	
 	public TypeDiplome() {

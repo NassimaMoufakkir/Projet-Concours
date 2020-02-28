@@ -17,7 +17,7 @@ import com.fstg.TP2.bean.Module;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
 
 @RestController
-@RequestMapping("concours/configconcours")
+@RequestMapping("concours-api/configconcours")
 public class ConfigConcoursRest {
 	@Autowired
 	public ConfigConcoursService configConcoursService;
@@ -25,11 +25,6 @@ public class ConfigConcoursRest {
 	@GetMapping("/reference/{reference}")
 	public List<ConfigConcours> findByConcoursReference(@PathVariable String reference) {
 		return configConcoursService.findByConcoursReference(reference);
-	}
-
-	@GetMapping("/module/{module}")
-	public List<ConfigConcours> findByModule(Module module) {
-		return configConcoursService.findByModule(module);
 	}
 
 	@PostMapping("/")

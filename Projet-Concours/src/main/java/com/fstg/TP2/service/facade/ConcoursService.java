@@ -10,7 +10,7 @@ public interface ConcoursService {
 	public Concours findByReference(String reference);
 	public List<Concours> findAll();
 	public List<Concours> findByEtudiantCne(String cne);
-	public List<Concours> findByAnneeConcours(Date anneeConcours);
+	public List<Concours> findByAnneeConcours(int anneeConcours);
 	public int save(Concours concours);
 	//public List<Concours> findConcours();
 

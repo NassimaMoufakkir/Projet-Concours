@@ -14,7 +14,7 @@ import com.fstg.TP2.bean.Etudiant;
 import com.fstg.TP2.service.facade.EtudiantService;
 
 @RestController
-@RequestMapping("concours/etudiant")
+@RequestMapping("concours-api/etudiant")
 public class EtudiantRest {
 	@Autowired
 	public EtudiantService etudiantService;

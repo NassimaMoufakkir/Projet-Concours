@@ -16,7 +16,7 @@ import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.service.facade.ConcoursService;
 
 @RestController
-@RequestMapping("concours/etudiant")
+@RequestMapping("concours-api/concours")
 public class ConcoursRest {
 	@Autowired
 	public ConcoursService concoursService;
@@ -37,7 +37,7 @@ public class ConcoursRest {
 	}
 
 	@GetMapping("/anneeConcours/{anneeConcours}")
-	public List<Concours> findByAnneeConcours(@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date anneeConcours) {
+	public List<Concours> findByAnneeConcours(@PathVariable int anneeConcours) {
 		return concoursService.findByAnneeConcours(anneeConcours);
 	}
 

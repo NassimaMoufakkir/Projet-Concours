@@ -23,11 +23,8 @@ public class Inscription {
 	@Temporal(TemporalType.DATE)
 	private Date dateInscription;
 
-	
-	//ajout getters setters
 	private double noteGlobale;
-	private String resultat;
-	private int nbreModule;
+	private int resultat;
 
 	public Inscription() {
 		super();
@@ -40,6 +37,23 @@ public class Inscription {
 		this.reference = reference;
 		this.concours = concours;
 		this.dateInscription = dateInscription;
+	}
+
+	
+	public double getNoteGlobale() {
+		return noteGlobale;
+	}
+
+	public void setNoteGlobale(double noteGlobale) {
+		this.noteGlobale = noteGlobale;
+	}
+
+	public int getResultat() {
+		return resultat;
+	}
+
+	public void setResultat(int resultat) {
+		this.resultat = resultat;
 	}
 
 	public Long getId() {

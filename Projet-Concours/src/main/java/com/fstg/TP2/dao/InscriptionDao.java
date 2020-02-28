@@ -18,6 +18,6 @@ public interface InscriptionDao extends JpaRepository<Inscription, Long> {
 	public List <Inscription> findByEtudiantCne(String cne);
 	
 	
-	public List <Inscription> findByEtudiantCneConcoursReference(String cne,String reference);
+	public List <Inscription> findByEtudiantCneAndConcoursReference(String cne,String reference);
 	
 }

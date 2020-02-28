@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("concours/module-concours")
+@RequestMapping("concours-api/module-concours")
 public class ModuleConcoursRest {
 
 }

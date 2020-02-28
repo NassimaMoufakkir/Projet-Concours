@@ -9,7 +9,6 @@ import com.fstg.TP2.bean.Module;
 public interface ConfigConcoursService {
 	public List<ConfigConcours> findByConcoursReference(String reference);
 
-	public List<ConfigConcours> findByModule(Module module);
 
 	public int save(Concours concours, List<ConfigConcours> configConcours);
 
