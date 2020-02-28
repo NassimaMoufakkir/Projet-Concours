@@ -1,9 +1,6 @@
 package com.fstg.TP2.bean;
 
-//okkk ù
-// okkkkkkkkkk
-//ok
-
+//nassima lghzala
 import java.util.Date;
 import java.util.List;
 
