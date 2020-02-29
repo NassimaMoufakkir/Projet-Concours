@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
 public class Departement {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -19,7 +20,6 @@ public class Departement {
 
 	public Departement() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Departement(Long id, String nom, String description, List<Filiere> filieres) {

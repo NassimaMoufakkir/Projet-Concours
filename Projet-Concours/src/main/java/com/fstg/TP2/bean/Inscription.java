@@ -12,23 +12,22 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Inscription {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String reference;
+	private double noteGlobale;
+	private int resultat;
+	@Temporal(TemporalType.DATE)
+	private Date dateInscription;
 	@ManyToOne
 	private Concours concours;
 	@ManyToOne
 	private Etudiant etudiant;
-	@Temporal(TemporalType.DATE)
-	private Date dateInscription;
-
-	private double noteGlobale;
-	private int resultat;
 
 	public Inscription() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Inscription(Long id, String reference, Concours concours, Date dateInscription) {
@@ -39,7 +38,6 @@ public class Inscription {
 		this.dateInscription = dateInscription;
 	}
 
-	
 	public double getNoteGlobale() {
 		return noteGlobale;
 	}

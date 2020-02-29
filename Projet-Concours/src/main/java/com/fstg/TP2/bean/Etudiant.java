@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 //hello
 @Entity
 public class Etudiant {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -19,16 +20,12 @@ public class Etudiant {
 	private String nom;
 	private String prenom;
 	private int age;
-	
-	//getters setters
 	private double note;
-	
 	@ManyToOne
 	private TypeDiplome typeDiplome;
 
 	public Etudiant() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Etudiant(Long id, String cne, String nom, String prenom, int age) {
@@ -78,6 +75,22 @@ public class Etudiant {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public double getNote() {
+		return note;
+	}
+
+	public void setNote(double note) {
+		this.note = note;
+	}
+
+	public TypeDiplome getTypeDiplome() {
+		return typeDiplome;
+	}
+
+	public void setTypeDiplome(TypeDiplome typeDiplome) {
+		this.typeDiplome = typeDiplome;
 	}
 
 }

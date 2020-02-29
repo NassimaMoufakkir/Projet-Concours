@@ -8,15 +8,29 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class NoteModuleConcours {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private double note;
+	private double noteAvecCoeff;
 	@ManyToOne
 	private Inscription inscription;
 	@ManyToOne
 	private Module module;
-	private double note;
-	private double noteAvecCoeff;
+
+	public NoteModuleConcours() {
+		super();
+	}
+
+	public NoteModuleConcours(Long id, Inscription inscription, Module module, double note, double noteAvecCoeff) {
+		super();
+		this.id = id;
+		this.inscription = inscription;
+		this.module = module;
+		this.note = note;
+		this.noteAvecCoeff = noteAvecCoeff;
+	}
 
 	public Long getId() {
 		return id;
@@ -55,20 +69,6 @@ public class NoteModuleConcours {
 	}
 
 	public void setNoteAvecCoeff(double noteAvecCoeff) {
-		this.noteAvecCoeff = noteAvecCoeff;
-	}
-
-	public NoteModuleConcours() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public NoteModuleConcours(Long id, Inscription inscription, Module module, double note, double noteAvecCoeff) {
-		super();
-		this.id = id;
-		this.inscription = inscription;
-		this.module = module;
-		this.note = note;
 		this.noteAvecCoeff = noteAvecCoeff;
 	}
 

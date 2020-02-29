@@ -1,7 +1,6 @@
 
 package com.fstg.TP2.bean;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,18 +9,18 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class ModuleConcours {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private double coef;
 	@ManyToOne
 	private Module module;
 	@ManyToOne
 	private Concours concours;
-	private double coef;
 
 	public ModuleConcours() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ModuleConcours(Long id, Module module, Concours concours, int coef) {
