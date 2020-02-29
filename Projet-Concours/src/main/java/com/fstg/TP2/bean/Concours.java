@@ -37,9 +37,11 @@ public class Concours {
 
 	@OneToOne
 	private ConfigConcours configConcours;
+	
 	private int nbreEtudiantAdmisOrale;
 	private int nbreEtudiantAdmisEcrit;
 	private int nbreEtudiantAdmis;
+	
 	@ManyToOne
 	private Filiere filiere;
 	
