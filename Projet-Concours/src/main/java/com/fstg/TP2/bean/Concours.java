@@ -1,6 +1,7 @@
 package com.fstg.TP2.bean;
 
 import java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,39 +13,55 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 @Entity
 public class Concours {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private int nbreEtudiantAdmisOrale;
+	private int nbreEtudiantAdmisEcrit;
+	private int nbreEtudiantAdmis;
 	private String reference;
+	private int annee;
+	private String description;
 	@Temporal(TemporalType.DATE)
 	private Date dateConcours;
 	@Temporal(TemporalType.DATE)
 	private Date dateOrale;
-	
 	@Temporal(TemporalType.DATE)
 	private Date dateEcrit;
-	
 	@Temporal(TemporalType.DATE)
 	private Date dateAffichageResultatFinal;
-	
-	private int annee;
-	
-
-	
-	private String description;
-
 	@OneToOne
 	private ConfigConcours configConcours;
-	private int nbreEtudiantAdmisOrale;
-	private int nbreEtudiantAdmisEcrit;
-	private int nbreEtudiantAdmis;
 	@ManyToOne
 	private Filiere filiere;
-	
-	
-	
+
+	public Concours() {
+		super();
+	}
+
+	public Concours(Long id, int nbreEtudiantAdmisOrale, int nbreEtudiantAdmisEcrit, int nbreEtudiantAdmis,
+			String reference, int annee, String description, Date dateConcours, Date dateOrale, Date dateEcrit,
+			Date dateAffichageResultatFinal, ConfigConcours configConcours, Filiere filiere) {
+		super();
+		this.id = id;
+		this.nbreEtudiantAdmisOrale = nbreEtudiantAdmisOrale;
+		this.nbreEtudiantAdmisEcrit = nbreEtudiantAdmisEcrit;
+		this.nbreEtudiantAdmis = nbreEtudiantAdmis;
+		this.reference = reference;
+		this.annee = annee;
+		this.description = description;
+		this.dateConcours = dateConcours;
+		this.dateOrale = dateOrale;
+		this.dateEcrit = dateEcrit;
+		this.dateAffichageResultatFinal = dateAffichageResultatFinal;
+		this.configConcours = configConcours;
+		this.filiere = filiere;
+	}
+
 	public Date getDateConcours() {
 		return dateConcours;
 	}
@@ -123,10 +140,6 @@ public class Concours {
 
 	public void setFiliere(Filiere filiere) {
 		this.filiere = filiere;
-	}
-
-	public Concours() {
-		super();
 	}
 
 	public Long getId() {

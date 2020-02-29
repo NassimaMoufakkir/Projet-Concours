@@ -11,32 +11,43 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class ConfigConcours {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@ManyToOne
-	private TypeDiplome typeDiplome;
-
-	
 	private double noteMin;
 	private double nbreMaxAdmis;
 	private double nbreMaxEcritAdmis;
 	private double nbreMaxOraleAdmis;
 	@ManyToOne
+	private TypeDiplome typeDiplome;
+	@ManyToOne
 	private Concours concours;
-	
-	
-	
+
+	public ConfigConcours() {
+		super();
+	}
+
+	public ConfigConcours(Long id, double noteMin, double nbreMaxAdmis, double nbreMaxEcritAdmis,
+			double nbreMaxOraleAdmis, TypeDiplome typeDiplome, Concours concours) {
+		super();
+		this.id = id;
+		this.noteMin = noteMin;
+		this.nbreMaxAdmis = nbreMaxAdmis;
+		this.nbreMaxEcritAdmis = nbreMaxEcritAdmis;
+		this.nbreMaxOraleAdmis = nbreMaxOraleAdmis;
+		this.typeDiplome = typeDiplome;
+		this.concours = concours;
+	}
 
 	public TypeDiplome getTypeDiplome() {
 		return typeDiplome;
 	}
+
 	public void setTypeDiplome(TypeDiplome typeDiplome) {
 		this.typeDiplome = typeDiplome;
 	}
-	public ConfigConcours() {
-		super();
-	}
+
 	public Long getId() {
 		return id;
 	}
@@ -84,10 +95,5 @@ public class ConfigConcours {
 	public void setConcours(Concours concours) {
 		this.concours = concours;
 	}
-
-
-	
-
-	
 
 }

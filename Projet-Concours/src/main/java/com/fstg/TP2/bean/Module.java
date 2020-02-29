@@ -10,14 +10,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Module {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String libelle;
-	
+
 	public Module() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Module(Long id, String libelle) {
