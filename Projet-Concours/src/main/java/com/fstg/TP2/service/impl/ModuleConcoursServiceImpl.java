@@ -36,12 +36,12 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	@Override
 	public int save(ModuleConcours moduleConcours) {
 
-		// j'ajoute un attribut a ModuleConcours wla hi hadchi nit ?
+		//module et foundedModuleConcours machi nefs lhaja ??
 		ModuleConcours foundedModuleConcours = findByModuleLibelle(moduleConcours.getModule().getLibelle());
 		Module module = moduleService.findByLibelle(moduleConcours.getModule().getLibelle());
 		Concours concours = concoursService.findByReference(moduleConcours.getConcours().getReference());
 		// module == null wla module.getLibelle()==null ??
-		if (module == null) {
+		if (module.getLibelle() == null) {
 			return -1;
 		} else if (foundedModuleConcours != null) {
 			return -2;
