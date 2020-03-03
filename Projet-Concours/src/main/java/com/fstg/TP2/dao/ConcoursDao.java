@@ -8,9 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import com.fstg.TP2.bean.Concours;
 
-
 @Repository
 public interface ConcoursDao extends JpaRepository<Concours, Long> {
 	public Concours findByReference(String reference);
+
 	public List<Concours> findByAnnee(int annee);
+
+	public List<Concours> findByFiliereNom(String nom);
+
+	public List<Concours> findAll();
+
 }

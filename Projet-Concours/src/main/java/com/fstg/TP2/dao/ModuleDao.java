@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.fstg.TP2.bean.Module;
 
-
 @Repository
-public interface ModuleDao extends JpaRepository <Module, Long> {
+public interface ModuleDao extends JpaRepository<Module, Long> {
 	public Module findByLibelle(String libelle);
+
 	public List<Module> findAll();
 }

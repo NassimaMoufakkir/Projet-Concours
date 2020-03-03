@@ -1,25 +1,18 @@
 package com.fstg.TP2.service.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Concours;
-import com.fstg.TP2.bean.Etudiant;
 import com.fstg.TP2.dao.ConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
-import com.fstg.TP2.service.facade.EtudiantService;
 
 @Service
 public class ConcoursServiceImpl implements ConcoursService {
 	@Autowired
 	private ConcoursDao concoursDao;
-	
-	@Autowired
-	private EtudiantService etudiantService;
-	
 
 	@Override
 	public Concours findByReference(String reference) {
@@ -32,22 +25,11 @@ public class ConcoursServiceImpl implements ConcoursService {
 	}
 
 	@Override
-	public List<Concours> findByEtudiantCne(String cne) {
-		return null;
-	}
-	
-	@Override
-	public List<Concours> findByAnneeConcours(int anneeConcours) {
-		return concoursDao.findByAnnee(anneeConcours);
-	}
-
-	@Override
 	public int save(Concours concours) {
 		Concours foundedConcours = findByReference(concours.getReference());
-		//Etudiant etudiant = etudiantService.findByCne(((Etudiant) concours.getEtudiants()).getCne());
 		if (foundedConcours != null) {
 			return -1;
-		} 
+		}
 
 		else {
 			concoursDao.save(concours);
@@ -55,6 +37,14 @@ public class ConcoursServiceImpl implements ConcoursService {
 		}
 	}
 
+	@Override
+	public List<Concours> findByAnnee(int annee) {
+		return concoursDao.findByAnnee(annee);
+	}
 
+	@Override
+	public List<Concours> findByFiliereNom(String nom) {
+		return concoursDao.findByFiliereNom(nom);
+	}
 
 }

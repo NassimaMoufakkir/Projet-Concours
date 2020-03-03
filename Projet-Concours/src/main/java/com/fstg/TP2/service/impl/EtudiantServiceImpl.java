@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Etudiant;
-import com.fstg.TP2.bean.Inscription;
 import com.fstg.TP2.dao.EtudiantDao;
 import com.fstg.TP2.service.facade.EtudiantService;
 

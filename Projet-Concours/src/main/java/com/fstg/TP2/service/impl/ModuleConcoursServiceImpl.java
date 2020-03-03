@@ -66,4 +66,14 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 		}
 	}
 
+	@Override
+	public List<ModuleConcours> findByConcoursReference(String reference) {
+		return moduleConcoursDao.findByConcoursReference(reference);
+	}
+
+	@Override
+	public List<ModuleConcours> findByConcoursReferenceAndModuleLibelle(String reference, String libelle) {
+		return moduleConcoursDao.findByConcoursReferenceAndModuleLibelle(reference, libelle);
+	}
+
 }

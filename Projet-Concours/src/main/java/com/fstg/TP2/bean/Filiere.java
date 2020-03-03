@@ -8,23 +8,25 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Filiere {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String nom;
+	private String libelle;
+	private String description;
 	@ManyToOne
 	private Departement departement;
 
 	public Filiere() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Filiere(Long id, Departement departement, String nom) {
+	public Filiere(Long id, String libelle, String description, Departement departement) {
 		super();
 		this.id = id;
+		this.libelle = libelle;
+		this.description = description;
 		this.departement = departement;
-		this.nom = nom;
 	}
 
 	public Long getId() {
@@ -35,45 +37,28 @@ public class Filiere {
 		this.id = id;
 	}
 
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Departement getDepartement() {
 		return departement;
 	}
 
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Filiere other = (Filiere) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
 	}
 
 }

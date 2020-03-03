@@ -7,19 +7,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 @Entity
 public class Departement {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nom;
+	private String refrence;
+
 	private String description;
 	@OneToMany(mappedBy = "departement")
 	private List<Filiere> filieres;
 
 	public Departement() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public Departement(Long id, String nom, String description, List<Filiere> filieres) {
@@ -36,6 +39,14 @@ public class Departement {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getRefrence() {
+		return refrence;
+	}
+
+	public void setRefrence(String refrence) {
+		this.refrence = refrence;
 	}
 
 	public String getNom() {
@@ -60,6 +71,11 @@ public class Departement {
 
 	public void setFilieres(List<Filiere> filieres) {
 		this.filieres = filieres;
+	}
+
+	public Object getReference() {
+		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+																		// Tools | Templates.
 	}
 
 }

@@ -1,10 +1,8 @@
 package com.fstg.TP2.ws;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,21 +29,20 @@ public class ConcoursRest {
 		return concoursService.findAll();
 	}
 
-	@GetMapping("/cne/{cne}")
-	public List<Concours> findByEtudiantCne(@PathVariable String cne) {
-		return concoursService.findByEtudiantCne(cne);
+	@GetMapping("/annee/{annee}")
+
+	public List<Concours> findByAnnee(@PathVariable int annee) {
+		return concoursService.findByAnnee(annee);
 	}
 
-	@GetMapping("/anneeConcours/{anneeConcours}")
-	public List<Concours> findByAnneeConcours(@PathVariable int anneeConcours) {
-		return concoursService.findByAnneeConcours(anneeConcours);
+	@GetMapping("/FiliereNom/{FiliereNom}")
+	public List<Concours> findByFiliereNom(@PathVariable String nom) {
+		return concoursService.findByFiliereNom(nom);
 	}
 
 	@PostMapping("/")
 	public int save(@RequestBody Concours concours) {
 		return concoursService.save(concours);
 	}
-	
-	
 
 }
