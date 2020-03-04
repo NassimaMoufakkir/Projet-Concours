@@ -1,6 +1,5 @@
 package com.fstg.TP2.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,5 +16,5 @@ public interface ConcoursDao extends JpaRepository<Concours, Long> {
 	public List<Concours> findByFiliereNom(String nom);
 
 	public List<Concours> findAll();
-
+	public int deleteByReference(String reference);
 }

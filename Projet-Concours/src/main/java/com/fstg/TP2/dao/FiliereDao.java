@@ -8,5 +8,5 @@ import com.fstg.TP2.bean.Filiere;
 @Repository
 public interface FiliereDao extends JpaRepository<Filiere, Long> {
 	Filiere findByLibelle(String libelle);
-
+	public int deleteByLibelle(String libelle);
 }

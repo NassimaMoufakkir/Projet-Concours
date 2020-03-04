@@ -39,7 +39,8 @@ public class ModuleRest {
 
 	@DeleteMapping("/")
 	public int delete(@RequestBody Module module) {
-		return moduleService.delete(module);
+//		return moduleService.delete(module);
+		return 0;
 	}
 
 }

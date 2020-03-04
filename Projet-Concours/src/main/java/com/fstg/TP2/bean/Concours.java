@@ -14,9 +14,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-//hello
-//lkjxckvxc
-//kjhjkhj
 @Entity
 public class Concours {
 
@@ -39,8 +36,6 @@ public class Concours {
 	private Date dateAffichageResultatFinal;
 	@OneToOne
 	private ConfigConcours configConcours;
-
-	
 	@ManyToOne
 	private Filiere filiere;
 

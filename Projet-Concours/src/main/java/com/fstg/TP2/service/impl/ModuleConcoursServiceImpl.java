@@ -55,16 +55,16 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 		}
 	}
 
-	@Override
-	public int delete(ModuleConcours moduleConcours) {
-		ModuleConcours foundedModule = findByModuleLibelle(moduleConcours.getModule().getLibelle());
-		if (foundedModule != null) {
-			moduleConcoursDao.delete(moduleConcours);
-			return 0;
-		} else {
-			return -1;
-		}
-	}
+//	@Override
+//	public int delete(ModuleConcours moduleConcours) {
+//		ModuleConcours foundedModule = findByModuleLibelle(moduleConcours.getModule().getLibelle());
+//		if (foundedModule != null) {
+//			moduleConcoursDao.delete(moduleConcours);
+//			return 0;
+//		} else {
+//			return -1;
+//		}
+//	}
 
 	@Override
 	public List<ModuleConcours> findByConcoursReference(String reference) {
@@ -74,6 +74,18 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	@Override
 	public List<ModuleConcours> findByConcoursReferenceAndModuleLibelle(String reference, String libelle) {
 		return moduleConcoursDao.findByConcoursReferenceAndModuleLibelle(reference, libelle);
+	}
+
+	@Override
+	public int deleteAll() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteByModuleLibelle(String libelle) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

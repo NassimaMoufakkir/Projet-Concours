@@ -15,7 +15,6 @@ public class Departement {
 	private Long id;
 	private String nom;
 	private String refrence;
-
 	private String description;
 	@OneToMany(mappedBy = "departement")
 	private List<Filiere> filieres;

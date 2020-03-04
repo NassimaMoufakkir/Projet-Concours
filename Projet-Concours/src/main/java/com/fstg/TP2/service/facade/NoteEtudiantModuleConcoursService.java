@@ -1,6 +1,9 @@
 package com.fstg.TP2.service.facade;
 
+import java.util.List;
 
-public class NoteEtudiantModuleConcoursService {
+import com.fstg.TP2.bean.NoteModuleConcours;
 
+public interface NoteEtudiantModuleConcoursService {
+	
 }

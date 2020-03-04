@@ -34,5 +34,17 @@ public class FiliereServiceImpl implements FiliereService {
            return 1;
        }
     }
+
+	@Override
+	public int deleteAll() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteByLibelle(String libelle) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
     
 }

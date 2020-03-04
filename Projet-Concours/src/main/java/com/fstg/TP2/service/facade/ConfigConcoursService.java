@@ -8,12 +8,9 @@ import com.fstg.TP2.bean.Module;
 
 public interface ConfigConcoursService {
 	public List<ConfigConcours> findByConcoursReference(String reference);
-
-
 	public int save(Concours concours, List<ConfigConcours> configConcours);
-
 	public boolean validateConfigConcours(Concours concours, List<ConfigConcours> configConcours);
-
 	public int deleteByConcoursReference(String reference);
-
+	public int deleteAll();
+	//public int deleteByReference(String reference);
 }

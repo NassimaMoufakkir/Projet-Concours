@@ -36,4 +36,16 @@ public class EtudiantServiceImpl implements EtudiantService {
 		}
 
 	}
+
+	@Override
+	public int deleteAll() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteByCne(String cne) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
