@@ -10,35 +10,28 @@ import com.fstg.TP2.service.facade.FiliereService;
 
 public class FiliereServiceImpl implements FiliereService {
 
-    @Autowired
-    private FiliereDao filiereDao;
-  
-    @Override
-    public Filiere findByLibelle(String libelle) {
-        return filiereDao.findByLibelle(libelle);
-    }
-
-    @Override
-    public List<Filiere> findAll() {
-        return filiereDao.findAll();
-    }
-
-    @Override
-    public int save(Filiere filiere) {
-    	Filiere foundedFiliere = findByLibelle(filiere.getLibelle());
-       if(foundedFiliere!=null){
-           return -1;
-       }
-       else{
-           filiereDao.save(filiere);
-           return 1;
-       }
-    }
+	@Autowired
+	private FiliereDao filiereDao;
 
 	@Override
-	public int deleteAll() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Filiere findByLibelle(String libelle) {
+		return filiereDao.findByLibelle(libelle);
+	}
+
+	@Override
+	public List<Filiere> findAll() {
+		return filiereDao.findAll();
+	}
+
+	@Override
+	public int save(Filiere filiere) {
+		Filiere foundedFiliere = findByLibelle(filiere.getLibelle());
+		if (foundedFiliere != null) {
+			return -1;
+		} else {
+			filiereDao.save(filiere);
+			return 1;
+		}
 	}
 
 	@Override
@@ -46,5 +39,5 @@ public class FiliereServiceImpl implements FiliereService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-    
+
 }

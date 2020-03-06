@@ -10,7 +10,6 @@ import com.fstg.TP2.bean.Departement;
 @Repository
 public interface DepartementDao extends JpaRepository<Departement, Long> {
 	public Departement findByRefrence(String reference);
-	public List<Departement> findAll();
 	public int deleteByRefrence(String reference);
 
 }

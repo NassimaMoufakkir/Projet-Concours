@@ -10,6 +10,5 @@ public interface InscriptionService {
 	public List<Inscription> findByEtudiantCne(String cne);
 	public List<Inscription> findByEtudiantCneConcoursReference(String cne, String reference);
 	public int save(Inscription inscription);
-	public int deleteAll();
 	public int deleteByReference(String reference);
 }

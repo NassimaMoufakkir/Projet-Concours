@@ -10,8 +10,6 @@ public interface ModuleConcoursService {
 	public List<ModuleConcours> findByConcoursReference(String reference);
 	public List<ModuleConcours> findByConcoursReferenceAndModuleLibelle(String reference, String libelle);
 	public int save(ModuleConcours moduleConcours);
-	//public int delete(ModuleConcours moduleConcours);
-	public int deleteAll();
 	public int deleteByModuleLibelle(String libelle);
 
 }

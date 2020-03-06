@@ -45,16 +45,5 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 		return configConcoursDao.deleteByConcoursReference(reference);
 	}
 
-	@Override
-	public int deleteAll() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-//	@Override
-//	public int deleteByReference(String reference) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 
 }

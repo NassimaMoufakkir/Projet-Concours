@@ -36,16 +36,16 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	@Override
 	public int save(ModuleConcours moduleConcours) {
 
-		//module et foundedModuleConcours machi nefs lhaja ??
+		// module et foundedModuleConcours machi nefs lhaja ??
 		ModuleConcours foundedModuleConcours = findByModuleLibelle(moduleConcours.getModule().getLibelle());
 		Module module = moduleService.findByLibelle(moduleConcours.getModule().getLibelle());
 		Concours concours = concoursService.findByReference(moduleConcours.getConcours().getReference());
 		// module == null wla module.getLibelle()==null ??
-		if (module.getLibelle() == null) {
+		if (module == null) {
 			return -1;
 		} else if (foundedModuleConcours != null) {
 			return -2;
-		} else if (concours.getReference() == null) {
+		} else if (concours == null) {
 			return -3;
 		} else {
 			moduleConcours.setConcours(concours);
@@ -55,17 +55,6 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 		}
 	}
 
-//	@Override
-//	public int delete(ModuleConcours moduleConcours) {
-//		ModuleConcours foundedModule = findByModuleLibelle(moduleConcours.getModule().getLibelle());
-//		if (foundedModule != null) {
-//			moduleConcoursDao.delete(moduleConcours);
-//			return 0;
-//		} else {
-//			return -1;
-//		}
-//	}
-
 	@Override
 	public List<ModuleConcours> findByConcoursReference(String reference) {
 		return moduleConcoursDao.findByConcoursReference(reference);
@@ -74,12 +63,6 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	@Override
 	public List<ModuleConcours> findByConcoursReferenceAndModuleLibelle(String reference, String libelle) {
 		return moduleConcoursDao.findByConcoursReferenceAndModuleLibelle(reference, libelle);
-	}
-
-	@Override
-	public int deleteAll() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override

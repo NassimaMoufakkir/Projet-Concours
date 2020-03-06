@@ -10,6 +10,5 @@ import com.fstg.TP2.bean.Module;
 @Repository
 public interface ModuleDao extends JpaRepository<Module, Long> {
 	public Module findByLibelle(String libelle);
-	public List<Module> findAll();
 	public int deleteByLibelle(String libelle);
 }

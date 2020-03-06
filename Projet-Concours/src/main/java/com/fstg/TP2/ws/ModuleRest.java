@@ -18,7 +18,7 @@ import com.fstg.TP2.service.facade.ModuleService;
 @RequestMapping("concours-api/module")
 
 public class ModuleRest {
-	
+
 	@Autowired
 	private ModuleService moduleService;
 
@@ -37,15 +37,9 @@ public class ModuleRest {
 		return moduleService.save(module);
 	}
 
-	@DeleteMapping("/")
-	public int deleteAll() {
-		return moduleService.deleteAll();
-	}
-
 	@DeleteMapping("/libelle/{libelle}")
 	public int deleteByLibelle(@PathVariable String libelle) {
 		return moduleService.deleteByLibelle(libelle);
 	}
 
-	
 }

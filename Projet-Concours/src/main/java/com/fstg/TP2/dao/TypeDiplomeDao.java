@@ -9,7 +9,6 @@ import com.fstg.TP2.bean.TypeDiplome;
 
 @Repository
 public interface TypeDiplomeDao extends JpaRepository<TypeDiplome, Long> {
-	public List<TypeDiplome> findAll();
 	public TypeDiplome findByLibelle(String libelle);
 	
 }

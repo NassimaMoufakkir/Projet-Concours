@@ -9,7 +9,6 @@ import com.fstg.TP2.bean.NoteModuleConcours;
 
 @Repository
 public interface NoteModuleConcoursDao extends JpaRepository<NoteModuleConcours, Long> {
-	public List<NoteModuleConcours> findAll();
 	public NoteModuleConcours findByInscriptionEtudiantCne(String cne);
 
 }

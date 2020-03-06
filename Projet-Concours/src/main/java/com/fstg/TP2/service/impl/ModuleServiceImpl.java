@@ -32,14 +32,8 @@ public class ModuleServiceImpl implements ModuleService {
 			return -1;
 		} else {
 			moduleDao.save(module);
-			return 0;
+			return 1;
 		}
-	}
-
-	@Override
-	public int deleteAll() {
-		moduleDao.deleteAll();
-		return 0;
 	}
 
 	@Override
@@ -47,7 +41,7 @@ public class ModuleServiceImpl implements ModuleService {
 		Module foundedModule = findByLibelle(libelle);
 		if (foundedModule != null) {
 			moduleDao.deleteByLibelle(libelle);
-			return 0;
+			return 1;
 		} else {
 			return -1;
 		}

@@ -43,15 +43,10 @@ public class ConcoursServiceImpl implements ConcoursService {
 	}
 
 	@Override
-	public List<Concours> findByFiliereNom(String nom) {
-		return concoursDao.findByFiliereLibelle(nom);
+	public List<Concours> findByFiliereNom(String libelle) {
+		return concoursDao.findByFiliereLibelle(libelle);
 	}
 
-	@Override
-	public int deleteAll() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public int deleteByReference(String reference) {

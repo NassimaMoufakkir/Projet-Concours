@@ -8,6 +8,5 @@ public interface ModuleService {
 	public Module findByLibelle(String libelle);
 	public List<Module> findAll();
 	public int save(Module module);
-	public int deleteAll();
 	public int deleteByLibelle(String libelle);
 }
