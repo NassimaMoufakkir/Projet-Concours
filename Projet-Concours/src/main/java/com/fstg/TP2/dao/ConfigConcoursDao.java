@@ -13,5 +13,4 @@ public interface ConfigConcoursDao extends JpaRepository<ConfigConcours, Long> {
 	public List<ConfigConcours> findByTypeDiplomeLibelle(String libelle);
 	public List<ConfigConcours> findByConcoursReference(String reference);
 	public int deleteByConcoursReference(String reference);
-	public int deleteByReference(String reference);
 }

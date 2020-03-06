@@ -1,6 +1,5 @@
 package com.fstg.TP2.service.impl;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,27 +36,21 @@ public class ModuleServiceImpl implements ModuleService {
 		}
 	}
 
-//	@Override
-//	public int delete(Module module) {
-//		Module foundedModule = findByLibelle(module.getLibelle());
-//		if (foundedModule != null) {
-//			moduleDao.delete(module);
-//			return 0;
-//		} else {
-//			return -1;
-//		}
-//	}
-
 	@Override
 	public int deleteAll() {
-		// TODO Auto-generated method stub
+		moduleDao.deleteAll();
 		return 0;
 	}
 
 	@Override
 	public int deleteByLibelle(String libelle) {
-		// TODO Auto-generated method stub
-		return 0;
+		Module foundedModule = findByLibelle(libelle);
+		if (foundedModule != null) {
+			moduleDao.deleteByLibelle(libelle);
+			return 0;
+		} else {
+			return -1;
+		}
 	}
 
 }

@@ -3,11 +3,13 @@ package com.fstg.TP2.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Departement;
 import com.fstg.TP2.dao.DepartementDao;
 import com.fstg.TP2.service.facade.DepartementService;
 
+@Service
 public class DepartementServiceImpl implements DepartementService {
 
 	@Autowired
@@ -15,7 +17,7 @@ public class DepartementServiceImpl implements DepartementService {
 
 	@Override
 	public Departement findByReference(String reference) {
-		return departementDao.findByReference(reference);
+		return departementDao.findByRefrence(reference);
 	}
 
 	@Override

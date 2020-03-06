@@ -7,44 +7,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Module;
+import com.fstg.TP2.bean.NoteModuleConcours;
 import com.fstg.TP2.dao.NoteModuleConcoursDao;
 import com.fstg.TP2.service.facade.ModuleService;
+import com.fstg.TP2.service.facade.NoteModuleConcoursService;
 
 @Service
-public class NoteModuleConcoursServiceImpl implements ModuleService {
+public class NoteModuleConcoursServiceImpl implements NoteModuleConcoursService {
 
 	@Autowired
 	private NoteModuleConcoursDao noteModuleConcoursDao;
 
 	@Override
-	public Module findByLibelle(String libelle) {
+	public List<NoteModuleConcours> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Module> findAll() {
+	public NoteModuleConcours findByInscriptionEtudiantCne(String cne) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int save(Module module) {
+	public int save(NoteModuleConcours noteModuleConcours) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
-	public int deleteAll() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int deleteByLibelle(String libelle) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	
 }

@@ -44,7 +44,7 @@ public class ConcoursServiceImpl implements ConcoursService {
 
 	@Override
 	public List<Concours> findByFiliereNom(String nom) {
-		return concoursDao.findByFiliereNom(nom);
+		return concoursDao.findByFiliereLibelle(nom);
 	}
 
 	@Override

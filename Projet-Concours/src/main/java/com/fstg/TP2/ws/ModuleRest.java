@@ -38,9 +38,14 @@ public class ModuleRest {
 	}
 
 	@DeleteMapping("/")
-	public int delete(@RequestBody Module module) {
-//		return moduleService.delete(module);
-		return 0;
+	public int deleteAll() {
+		return moduleService.deleteAll();
 	}
 
+	@DeleteMapping("/libelle/{libelle}")
+	public int deleteByLibelle(@PathVariable String libelle) {
+		return moduleService.deleteByLibelle(libelle);
+	}
+
+	
 }
