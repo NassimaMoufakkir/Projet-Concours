@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Departement;
+import com.fstg.TP2.bean.Filiere;
 import com.fstg.TP2.dao.DepartementDao;
 import com.fstg.TP2.service.facade.DepartementService;
 
@@ -38,6 +39,12 @@ public class DepartementServiceImpl implements DepartementService {
 
 	@Override
 	public int deleteByReference(String reference) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int save(Departement departement, List<Filiere> filieres) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

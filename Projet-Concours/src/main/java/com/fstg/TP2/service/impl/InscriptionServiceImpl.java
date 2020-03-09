@@ -64,4 +64,10 @@ public class InscriptionServiceImpl implements InscriptionService {
 		return 0;
 	}
 
+	@Override
+	public int deleteByEtudiantCne(String cne) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

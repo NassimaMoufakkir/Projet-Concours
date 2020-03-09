@@ -14,4 +14,5 @@ public interface ModuleConcoursDao extends JpaRepository<ModuleConcours, Long> {
 	public List<ModuleConcours> findByConcoursReferenceAndModuleLibelle(String reference,String libelle);
 	public int deleteByModuleLibelle(String libelle);
 
+
 }
