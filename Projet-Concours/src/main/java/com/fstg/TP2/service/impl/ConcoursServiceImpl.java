@@ -2,17 +2,22 @@ package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.dao.ConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
+import com.fstg.TP2.service.facade.ConfigConcoursService;
 
 @Service
 public class ConcoursServiceImpl implements ConcoursService {
 	@Autowired
 	private ConcoursDao concoursDao;
+	@Autowired
+	private ConfigConcoursService configConcoursService;
 
 	@Override
 	public Concours findByReference(String reference) {
@@ -43,16 +48,15 @@ public class ConcoursServiceImpl implements ConcoursService {
 	}
 
 	@Override
-	public List<Concours> findByFiliereNom(String libelle) {
+	public List<Concours> findByFiliereLibelle(String libelle) {
 		return concoursDao.findByFiliereLibelle(libelle);
 	}
 
-
-	@Override
+	@Transactional
 	public int deleteByReference(String reference) {
-		// TODO Auto-generated method stub
-		return 0;
+		int resConfig = configConcoursService.deleteByConcoursReference(reference);
+		int resConcours = concoursDao.deleteByReference(reference);
+		return resConcours * resConfig;
 	}
 
-	
 }

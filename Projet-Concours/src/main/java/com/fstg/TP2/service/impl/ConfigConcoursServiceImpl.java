@@ -30,7 +30,9 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 
 	@Override
 	public int save(Concours concours, List<ConfigConcours> configConcours) {
+		//Concours foundedConcours = findByConcoursReference(concours.getReference());
 		return 0;
+		
 	}
 
 	@Override
@@ -43,6 +45,11 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Override
 	public int deleteByConcoursReference(String reference) {
 		return configConcoursDao.deleteByConcoursReference(reference);
+	}
+
+	@Override
+	public List<ConfigConcours> findByTypeDiplomeLibelle(String libelle) {
+		return configConcoursDao.findByTypeDiplomeLibelle(libelle);
 	}
 
 

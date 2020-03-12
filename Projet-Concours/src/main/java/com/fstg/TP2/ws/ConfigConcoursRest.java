@@ -27,6 +27,11 @@ public class ConfigConcoursRest {
 		return configConcoursService.findByConcoursReference(reference);
 	}
 
+	@GetMapping("/libelle/{libelle}")
+	public List<ConfigConcours> findByTypeDiplomeLibelle(@PathVariable String libelle) {
+		return configConcoursService.findByTypeDiplomeLibelle(libelle);
+	}
+
 	@PostMapping("/")
 	public int save(@RequestBody Concours concours, List<ConfigConcours> configConcours) {
 		return configConcoursService.save(concours, configConcours);
@@ -41,7 +46,5 @@ public class ConfigConcoursRest {
 	public int deleteByConcoursReference(@PathVariable String reference) {
 		return configConcoursService.deleteByConcoursReference(reference);
 	}
-	
-	
 
 }

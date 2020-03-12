@@ -1,6 +1,5 @@
 package com.fstg.TP2.service.impl;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,21 +19,23 @@ public class TypeDiplomeServiceImpl implements TypeDiplomeService {
 
 	@Override
 	public List<TypeDiplome> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return typeDiplomeDao.findAll();
 	}
 
 	@Override
 	public int save(TypeDiplome typeDiplome) {
-		// TODO Auto-generated method stub
-		return 0;
+		TypeDiplome foundedTypeDiplome = findByLibelle(typeDiplome.getLibelle());
+		if (foundedTypeDiplome != null)
+			return -1;
+		else {
+			typeDiplomeDao.save(foundedTypeDiplome);
+			return 1;
+		}
 	}
 
 	@Override
 	public TypeDiplome findByLibelle(String libelle) {
-		// TODO Auto-generated method stub
-		return null;
+		return typeDiplomeDao.findByLibelle(libelle);
 	}
-
 
 }

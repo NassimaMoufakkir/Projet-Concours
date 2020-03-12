@@ -3,6 +3,7 @@ package com.fstg.TP2.ws;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,9 +36,14 @@ public class ConcoursRest {
 		return concoursService.findByAnnee(annee);
 	}
 
-	@GetMapping("/FiliereNom/{FiliereNom}")
-	public List<Concours> findByFiliereNom(@PathVariable String nom) {
-		return concoursService.findByFiliereNom(nom);
+	@GetMapping("/FiliereLibelle/{FiliereLibelle}")
+	public List<Concours> findByFiliereLibelle(@PathVariable String libelle) {
+		return concoursService.findByFiliereLibelle(libelle);
+	}
+
+	@DeleteMapping("/reference/{reference}")
+	public int deleteByReference(@PathVariable String reference) {
+		return concoursService.deleteByReference(reference);
 	}
 
 	@PostMapping("/")

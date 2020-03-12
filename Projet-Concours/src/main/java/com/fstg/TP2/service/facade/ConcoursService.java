@@ -8,7 +8,7 @@ public interface ConcoursService {
 	public Concours findByReference(String reference);
 	public List<Concours> findByAnnee(int annee);
 	public int save(Concours concours);
-	public List<Concours> findByFiliereNom(String nom);
+	public List<Concours> findByFiliereLibelle(String Libelle);
 	public List<Concours> findAll();
 	public int deleteByReference(String reference);
 }
