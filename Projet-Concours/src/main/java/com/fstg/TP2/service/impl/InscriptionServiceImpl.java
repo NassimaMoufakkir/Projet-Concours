@@ -6,11 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.Etudiant;
 import com.fstg.TP2.bean.Inscription;
 import com.fstg.TP2.dao.InscriptionDao;
+import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.EtudiantService;
 import com.fstg.TP2.service.facade.InscriptionService;
+
 
 @Service
 public class InscriptionServiceImpl implements InscriptionService {
@@ -20,6 +23,9 @@ public class InscriptionServiceImpl implements InscriptionService {
 
 	@Autowired
 	public EtudiantService etudiantService;
+	
+	@Autowired
+	public ConcoursService concoursService;
 
 	@Override
 	public Inscription findByReference(String reference) {
@@ -60,13 +66,34 @@ public class InscriptionServiceImpl implements InscriptionService {
 
 	@Override
 	public int deleteByReference(String reference) {
-		// TODO Auto-generated method stub
-		return 0;
+		return inscriptionDao.deleteByReference(reference);
 	}
 
 	@Override
 	public int deleteByEtudiantCne(String cne) {
-		// TODO Auto-generated method stub
+		return inscriptionDao.deleteByEtudiantCne(cne);
+	}
+
+	@Override
+	public int validate(List <Inscription> inscriptions) {
+		for (int i = 0; i < inscriptions.size(); i++) {
+			Concours c = concoursService.findByReference(inscriptions.get(i).getConcours().getReference());
+			if (c == null) {
+				return i;
+			} else {
+				inscriptions.get(i).setConcours(c);
+			}
+		}
+		return -1;
+	}
+
+	@Override
+	public int save(Etudiant etudiant, List<Inscription> inscriptions) {
+		for (int i = 0; i < inscriptions.size(); i++) {
+			Inscription insc = inscriptions.get(i);
+			insc.setEtudiant(etudiant);
+			inscriptionDao.save(insc);
+		}
 		return 0;
 	}
 

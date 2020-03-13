@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-//hello
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 @Entity
 public class Etudiant {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,6 +25,9 @@ public class Etudiant {
 	private double note;
 	@ManyToOne
 	private TypeDiplome typeDiplome;
+	@OneToMany(mappedBy = "etudiant")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private List<Inscription> inscriptions;
 
 	public Etudiant() {
 		super();
