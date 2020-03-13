@@ -39,8 +39,13 @@ public class DepartementServiceImpl implements DepartementService {
 
 	@Override
 	public int deleteByReference(String reference) {
-		// TODO Auto-generated method stub
-		return 0;
+		Departement foundedDepartement = findByReference(reference);
+		if(foundedDepartement!=null) {
+			int resDepartemen = departementDao.deleteByRefrence(reference);
+			return resDepartemen;
+		}else {
+			return -1;
+		}
 	}
 
 	@Override

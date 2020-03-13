@@ -24,6 +24,6 @@ public interface InscriptionService {
 
 	int save(Etudiant etudiant, List<Inscription> inscriptions);
 	
-	int result()
+	int result();
 
 }
