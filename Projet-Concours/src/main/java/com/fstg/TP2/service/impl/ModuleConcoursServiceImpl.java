@@ -2,6 +2,8 @@ package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +42,7 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 		if (module == null) {
 			return -1;
 		} else if (concours == null) {
-			return -3;
+			return -2;
 		} else {
 			moduleConcours.setConcours(concours);
 			moduleConcours.setModule(module);
@@ -50,19 +52,29 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	}
 
 	@Override
-	public List<ModuleConcours> findByConcoursReference(String reference) {
+	public ModuleConcours findByConcoursReference(String reference) {
 		return moduleConcoursDao.findByConcoursReference(reference);
 	}
 
 	@Override
-	public List<ModuleConcours> findByConcoursReferenceAndModuleLibelle(String reference, String libelle) {
-		return moduleConcoursDao.findByConcoursReferenceAndModuleLibelle(reference, libelle);
+	@Transactional
+	public int deleteByModuleLibelle(String libelle) {
+		return moduleConcoursDao.deleteByModuleLibelle(libelle);
 	}
 
 	@Override
-	public int deleteByModuleLibelle(String libelle) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void save(String reference, List<ModuleConcours> modulesConcours) {
+		for (int i = 0; i < modulesConcours.size(); i++) {
+			ModuleConcours m = modulesConcours.get(i);
+			m.getConcours().setReference(reference);
+			moduleConcoursDao.save(m);
+		}
+	}
+
+	@Override
+	public ModuleConcours findByConcoursReferenceAndModuleLibelle(String reference, String libelle) {
+		return moduleConcoursDao.findByConcoursReferenceAndModuleLibelle(reference, libelle);
+
 	}
 
 }

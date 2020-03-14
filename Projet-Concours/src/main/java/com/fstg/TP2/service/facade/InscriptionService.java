@@ -10,10 +10,10 @@ public interface InscriptionService {
 
 	public List<Inscription> findAll();
 
-	public List<Inscription> findByEtudiantCne(String cne);
+	public Inscription findByEtudiantCne(String cne);
 
-	public List<Inscription> findByEtudiantCneConcoursReference(String cne, String reference);
-
+	public Inscription findByEtudiantCneAndConcoursReference(String cne, String reference);
+	
 	public int save(Inscription inscription);
 
 	public int deleteByReference(String reference);

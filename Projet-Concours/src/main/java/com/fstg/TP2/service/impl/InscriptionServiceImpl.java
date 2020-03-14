@@ -38,12 +38,12 @@ public class InscriptionServiceImpl implements InscriptionService {
 	}
 
 	@Override
-	public List<Inscription> findByEtudiantCne(String cne) {
+	public Inscription findByEtudiantCne(String cne) {
 		return inscriptionDao.findByEtudiantCne(cne);
 	}
 
 	@Override
-	public List<Inscription> findByEtudiantCneConcoursReference(String cne, String reference) {
+	public Inscription findByEtudiantCneAndConcoursReference(String cne, String reference) {
 		return inscriptionDao.findByEtudiantCneAndConcoursReference(cne, reference);
 	}
 
