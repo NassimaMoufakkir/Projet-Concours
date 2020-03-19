@@ -11,9 +11,9 @@ import com.fstg.TP2.bean.Inscription;
 public interface InscriptionDao extends JpaRepository<Inscription, Long> {
 	public Inscription findByReference(String reference);
 
-	public Inscription findByEtudiantCne(String cne);
+	public List <Inscription> findByEtudiantCne(String cne);
 
-	public List<Inscription> findByEtudiantCneAndConcoursReference(String cne, String reference);
+	public Inscription findByEtudiantCneAndConcoursReference(String cne, String reference);
 
 	public int deleteByReference(String reference);
 

@@ -36,11 +36,9 @@ public class InscriptionServiceImpl implements InscriptionService {
 	}
 
 	@Override
-	public Inscription findByEtudiantCne(String cne) {
+	public List<Inscription> findByEtudiantCne(String cne) {
 		return inscriptionDao.findByEtudiantCne(cne);
 	}
-
-
 
 	@Override
 	public int deleteByReference(String reference) {
@@ -64,14 +62,9 @@ public class InscriptionServiceImpl implements InscriptionService {
 	}
 
 	@Override
-	public List<Inscription> findByEtudiantCneAndConcoursReference(String cne, String reference) {
-	
+	public Inscription findByEtudiantCneAndConcoursReference(String cne, String reference) {
+
 		return inscriptionDao.findByEtudiantCneAndConcoursReference(cne, reference);
 	}
-
-
-
-
-
 
 }
