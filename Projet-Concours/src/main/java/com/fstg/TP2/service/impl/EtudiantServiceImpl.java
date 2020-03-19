@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Etudiant;
-import com.fstg.TP2.bean.Inscription;
 import com.fstg.TP2.dao.EtudiantDao;
 import com.fstg.TP2.service.facade.EtudiantService;
 import com.fstg.TP2.service.facade.InscriptionService;
@@ -31,19 +30,6 @@ public class EtudiantServiceImpl implements EtudiantService {
 	}
 
 	@Override
-	public int save(Etudiant etudiant) {
-
-		Etudiant foundedEtudiant = findByCne(etudiant.getCne());
-		if (foundedEtudiant != null) {
-			return -1;
-		} else {
-			etudiantDao.save(etudiant);
-			return 1;
-		}
-
-	}
-
-	@Override
 	@Transactional
 	public int deleteByCne(String cne) {
 		int resInscription = inscriptionService.deleteByEtudiantCne(cne);
@@ -52,19 +38,18 @@ public class EtudiantServiceImpl implements EtudiantService {
 	}
 
 	@Override
-	public int save(Etudiant etudiant, List<Inscription> inscriptions) {
-		Etudiant foundedEtudiant = etudiantDao.findByCne(etudiant.getCne());
-		int validate = inscriptionService.validate(inscriptions);
+	public int save(Etudiant etudiant) {
 
-		if (validate != -1) {
-			return -1 * validate;
-		} else if (foundedEtudiant != null) {
-			return -2;
+		Etudiant foundedEtudiant = findByCne(etudiant.getCne());
+		if (foundedEtudiant != null) {
+			return -1;
+
 		} else {
-
 			etudiantDao.save(etudiant);
-			inscriptionService.save(etudiant, inscriptions);
+			inscriptionService.save(etudiant, etudiant.getInscriptions());
 			return 1;
 		}
+
 	}
+
 }

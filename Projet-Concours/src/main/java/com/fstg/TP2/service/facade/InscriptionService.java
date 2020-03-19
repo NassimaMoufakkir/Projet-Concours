@@ -14,16 +14,10 @@ public interface InscriptionService {
 
 	public List<Inscription> findByEtudiantCneConcoursReference(String cne, String reference);
 
-	public int save(Inscription inscription);
-
 	public int deleteByReference(String reference);
 
 	public int deleteByEtudiantCne(String cne);
 
-	public int validate(List<Inscription> inscriptions);
-
 	int save(Etudiant etudiant, List<Inscription> inscriptions);
-	
-	int result();
 
 }

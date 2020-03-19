@@ -28,6 +28,16 @@ public class Etudiant {
 	@OneToMany(mappedBy = "etudiant")
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private List<Inscription> inscriptions;
+	
+	
+
+	public List<Inscription> getInscriptions() {
+		return inscriptions;
+	}
+
+	public void setInscriptions(List<Inscription> inscriptions) {
+		this.inscriptions = inscriptions;
+	}
 
 	public Etudiant() {
 		super();
