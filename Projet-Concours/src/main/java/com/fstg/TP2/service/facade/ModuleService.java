@@ -5,8 +5,13 @@ import java.util.List;
 import com.fstg.TP2.bean.Module;
 
 public interface ModuleService {
+	
 	public Module findByLibelle(String libelle);
+
 	public List<Module> findAll();
+
 	public int save(Module module);
+
 	public int deleteByLibelle(String libelle);
+	
 }

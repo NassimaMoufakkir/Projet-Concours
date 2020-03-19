@@ -3,7 +3,11 @@ package com.fstg.TP2.ws;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +22,7 @@ public class ModuleConcoursRest {
 	private ModuleConcoursService moduleConcoursService;
 
 	@GetMapping("/libelle/{libelle}")
-	public ModuleConcours findByModuleLibelle(String libelle) {
+	public ModuleConcours findByModuleLibelle(@PathVariable String libelle) {
 		return moduleConcoursService.findByModuleLibelle(libelle);
 	}
 
@@ -27,13 +31,30 @@ public class ModuleConcoursRest {
 		return moduleConcoursService.findAll();
 	}
 
-	/*public int save(ModuleConcours moduleConcours) {
+	@GetMapping("/concours/reference/{reference}")
+	public ModuleConcours findByConcoursReference(@PathVariable String reference) {
+		return moduleConcoursService.findByConcoursReference(reference);
+	}
+
+	@GetMapping("/concours/reference/{reference}/module/libelle/{libelle}")
+	public ModuleConcours findByConcoursReferenceAndModuleLibelle(@PathVariable String reference,
+			@PathVariable String libelle) {
+		return moduleConcoursService.findByConcoursReferenceAndModuleLibelle(reference, libelle);
+	}
+
+	@PostMapping("/")
+	public int save(@RequestBody ModuleConcours moduleConcours) {
 		return moduleConcoursService.save(moduleConcours);
 	}
 
-	public int delete(ModuleConcours moduleConcours) {
-		return moduleConcoursService.delete(moduleConcours);
-	}*/
-	
-	
+	@DeleteMapping("/libelle/{libelle}")
+	public int deleteByModuleLibelle(@PathVariable String libelle) {
+		return moduleConcoursService.deleteByModuleLibelle(libelle);
+	}
+
+	@PostMapping("/reference/{reference}")
+	public void save(@PathVariable String reference,@RequestBody List<ModuleConcours> modulesConcours) {
+		moduleConcoursService.save(reference, modulesConcours);
+	}
+
 }

@@ -2,6 +2,8 @@ package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,7 @@ public class ModuleServiceImpl implements ModuleService {
 	}
 
 	@Override
+	@Transactional 
 	public int deleteByLibelle(String libelle) {
 		Module foundedModule = findByLibelle(libelle);
 		if (foundedModule != null) {

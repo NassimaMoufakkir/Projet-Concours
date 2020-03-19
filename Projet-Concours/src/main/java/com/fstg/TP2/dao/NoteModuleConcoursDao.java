@@ -9,6 +9,11 @@ import com.fstg.TP2.bean.NoteModuleConcours;
 
 @Repository
 public interface NoteModuleConcoursDao extends JpaRepository<NoteModuleConcours, Long> {
+
 	public NoteModuleConcours findByInscriptionEtudiantCne(String cne);
+
+	public NoteModuleConcours findByModuleLibelleAndInscriptionConcoursReference(String libelle, String reference);
+
+	public NoteModuleConcours findByInscriptionEtudiantCneAndModuleLibelle(String cne, String libelle);
 
 }
