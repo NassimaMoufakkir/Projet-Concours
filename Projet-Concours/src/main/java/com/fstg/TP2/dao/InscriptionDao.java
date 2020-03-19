@@ -1,5 +1,6 @@
 package com.fstg.TP2.dao;
 
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +12,7 @@ import com.fstg.TP2.bean.Inscription;
 public interface InscriptionDao extends JpaRepository<Inscription, Long> {
 	public Inscription findByReference(String reference);
 
-	public Inscription findByEtudiantCne(String cne);
+	public List <Inscription> findByEtudiantCne(String cne);
 
 	public Inscription findByEtudiantCneAndConcoursReference(String cne, String reference);
 

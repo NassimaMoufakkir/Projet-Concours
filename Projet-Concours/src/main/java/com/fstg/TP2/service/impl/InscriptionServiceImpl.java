@@ -36,7 +36,7 @@ public class InscriptionServiceImpl implements InscriptionService {
 	}
 
 	@Override
-	public Inscription findByEtudiantCne(String cne) {
+	public List <Inscription> findByEtudiantCne(String cne) {
 		return inscriptionDao.findByEtudiantCne(cne);
 	}
 

@@ -11,7 +11,7 @@ public interface InscriptionService {
 
 	public Inscription findByReference(String reference);
 
-	public Inscription findByEtudiantCne(String cne);
+	public List <Inscription> findByEtudiantCne(String cne);
 
 	public Inscription findByEtudiantCneAndConcoursReference(String cne, String reference);
 
