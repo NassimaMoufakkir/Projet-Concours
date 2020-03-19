@@ -52,6 +52,7 @@ public class ConcoursServiceImpl implements ConcoursService {
 		return concoursDao.findByFiliereLibelle(libelle);
 	}
 
+	@Override
 	@Transactional
 	public int deleteByReference(String reference) {
 		int resConfig = configConcoursService.deleteByConcoursReference(reference);

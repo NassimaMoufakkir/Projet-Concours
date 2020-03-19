@@ -3,13 +3,13 @@ package com.fstg.TP2.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.ConfigConcours;
-import com.fstg.TP2.bean.Etudiant;
-import com.fstg.TP2.bean.Module;
 import com.fstg.TP2.dao.ConfigConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
@@ -43,6 +43,7 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	}
 
 	@Override
+	@Transactional
 	public int deleteByConcoursReference(String reference) {
 		return configConcoursDao.deleteByConcoursReference(reference);
 	}
