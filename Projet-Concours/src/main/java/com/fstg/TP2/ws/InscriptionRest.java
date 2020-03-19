@@ -36,7 +36,7 @@ public class InscriptionRest {
 	}
 
 	@GetMapping("/cne/{cne}")
-	public List<Inscription> findByEtudiantCne(@PathVariable String cne) {
+	public Inscription findByEtudiantCne(@PathVariable String cne) {
 		return incsriptionService.findByEtudiantCne(cne);
 	}
 
