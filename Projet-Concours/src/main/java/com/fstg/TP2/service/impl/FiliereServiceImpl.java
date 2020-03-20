@@ -2,6 +2,8 @@ package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fstg.TP2.bean.Departement;
@@ -36,6 +38,7 @@ public class FiliereServiceImpl implements FiliereService {
 	}
 
 	@Override
+	@Transactional
 	public int deleteByLibelle(String libelle) {
 		Filiere foundedFiliere = findByLibelle(libelle);
 		if(foundedFiliere!=null) {

@@ -2,6 +2,8 @@ package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,7 @@ public class DepartementServiceImpl implements DepartementService {
 	}
 
 	@Override
+	@Transactional
 	public int deleteByReference(String reference) {
 		Departement foundedDepartement = findByReference(reference);
 		if(foundedDepartement!=null) {

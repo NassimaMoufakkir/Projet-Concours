@@ -3,6 +3,8 @@ package com.fstg.TP2.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,11 +43,13 @@ public class InscriptionServiceImpl implements InscriptionService {
 	}
 
 	@Override
+	@Transactional
 	public int deleteByReference(String reference) {
 		return inscriptionDao.deleteByReference(reference);
 	}
 
 	@Override
+	@Transactional
 	public int deleteByEtudiantCne(String cne) {
 		return inscriptionDao.deleteByEtudiantCne(cne);
 	}
