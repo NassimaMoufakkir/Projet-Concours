@@ -16,7 +16,6 @@ import com.fstg.TP2.service.facade.ConfigConcoursService;
 
 //try 
 
-
 @Service
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Autowired
