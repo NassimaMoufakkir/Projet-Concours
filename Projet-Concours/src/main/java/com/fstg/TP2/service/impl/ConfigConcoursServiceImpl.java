@@ -12,6 +12,8 @@ import com.fstg.TP2.dao.ConfigConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
 
+//try 
+
 @Service
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Autowired
