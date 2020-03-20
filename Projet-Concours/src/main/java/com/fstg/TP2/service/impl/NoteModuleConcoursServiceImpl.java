@@ -63,7 +63,7 @@ public class NoteModuleConcoursServiceImpl implements NoteModuleConcoursService 
 
 		ModuleConcours moduleConcours = moduleConcoursService
 				.findByConcoursReferenceAndModuleLibelle(concours.getReference(), module.getLibelle());
-		Inscription inscription = inscriptionService.findByEtudiantCneAndConcoursReference(etudiant.getCne(),concours.getReference());
+		Inscription inscription = inscriptionService.findByEtudiantCneAndConcoursReference(etudiant.getCne(), concours.getReference());
 		if (moduleConcours == null) {
 			return -1;
 		} else if (inscription == null) {

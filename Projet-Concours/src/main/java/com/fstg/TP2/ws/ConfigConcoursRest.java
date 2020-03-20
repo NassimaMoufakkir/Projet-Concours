@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fstg.TP2.bean.Concours;
 import com.fstg.TP2.bean.ConfigConcours;
-import com.fstg.TP2.bean.Module;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
 
 @RestController
@@ -33,8 +32,8 @@ public class ConfigConcoursRest {
 	}
 
 	@PostMapping("/")
-	public int save(@RequestBody Concours concours, List<ConfigConcours> configConcours) {
-		return configConcoursService.save(concours, configConcours);
+	public void save(Concours concours, List<ConfigConcours> configConcours) {
+		configConcoursService.save(concours, configConcours);
 	}
 
 	@GetMapping("/validate")

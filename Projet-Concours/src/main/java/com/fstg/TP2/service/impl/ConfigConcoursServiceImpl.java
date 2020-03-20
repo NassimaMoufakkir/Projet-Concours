@@ -13,15 +13,15 @@ import com.fstg.TP2.bean.ConfigConcours;
 import com.fstg.TP2.dao.ConfigConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
-import com.fstg.TP2.service.facade.EtudiantService;
+
+//try 
+
 @Service
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	@Autowired
 	private ConfigConcoursDao configConcoursDao;
 	@Autowired
 	private ConcoursService concoursService;
-	@Autowired
-	private EtudiantService etudiantService;
 
 	@Override
 	public List<ConfigConcours> findByConcoursReference(String reference) {
@@ -29,16 +29,19 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	}
 
 	@Override
-	public int save(Concours concours, List<ConfigConcours> configConcours) {
-		//Concours foundedConcours = findByConcoursReference(concours.getReference());
-		return 0;
-		
+	public void save(Concours concours, List<ConfigConcours> configConcours) {
+		for (ConfigConcours c : configConcours) {
+			configConcoursDao.save(c);
+			c.setConcours(concours);
+		}
+
 	}
 
 	@Override
 	public boolean validateConfigConcours(Concours concours, List<ConfigConcours> configConcours) {
 		List<ConfigConcours> valideConcours = configConcours.stream()
-				.filter(cc -> concoursService.findByReference(cc.getConcours().getReference()) != null).collect(Collectors.toList());
+				.filter(cc -> concoursService.findByReference(cc.getConcours().getReference()) != null)
+				.collect(Collectors.toList());
 		return valideConcours.size() == configConcours.size();
 	}
 
@@ -52,6 +55,5 @@ public class ConfigConcoursServiceImpl implements ConfigConcoursService {
 	public List<ConfigConcours> findByTypeDiplomeLibelle(String libelle) {
 		return configConcoursDao.findByTypeDiplomeLibelle(libelle);
 	}
-
 
 }
