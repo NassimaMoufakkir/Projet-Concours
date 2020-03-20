@@ -13,7 +13,7 @@ import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
 
 //try 
-// save
+
 
 @Service
 public class ConfigConcoursServiceImpl implements ConfigConcoursService {
