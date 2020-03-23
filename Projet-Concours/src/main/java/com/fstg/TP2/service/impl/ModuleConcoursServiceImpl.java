@@ -62,19 +62,39 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 		return moduleConcoursDao.deleteByModuleLibelle(libelle);
 	}
 
-	@Override
-	public void save(String reference, List<ModuleConcours> modulesConcours) {
-		for (int i = 0; i < modulesConcours.size(); i++) {
-			ModuleConcours m = modulesConcours.get(i);
-			m.getConcours().setReference(reference);
-			moduleConcoursDao.save(m);
-		}
-	}
+//	@Override
+//	public void save(String reference, List<ModuleConcours> modulesConcours) {
+//		for (int i = 0; i < modulesConcours.size(); i++) {
+//			ModuleConcours m = modulesConcours.get(i);
+//			m.getConcours().setReference(reference);
+//			moduleConcoursDao.save(m);
+//		}
+//	}
 
 	@Override
 	public ModuleConcours findByConcoursReferenceAndModuleLibelle(String reference, String libelle) {
 		return moduleConcoursDao.findByConcoursReferenceAndModuleLibelle(reference, libelle);
 
+	}
+
+	@Override
+	public int deleteByConcoursReference(String reference) {
+		return moduleConcoursDao.deleteByConcoursReference(reference);
+	}
+
+	@Override
+	public ModuleConcours findByConcoursAnnee(int annee) {
+		return moduleConcoursDao.findByConcoursAnnee(annee);
+
+	}
+
+	@Override
+	public int save(Concours concours, List<ModuleConcours> modulesConcours) {
+		for (ModuleConcours moduleConcours : modulesConcours) {
+			moduleConcours.setConcours(concours);
+			moduleConcoursDao.save(moduleConcours);
+		}
+		return 1;
 	}
 
 }

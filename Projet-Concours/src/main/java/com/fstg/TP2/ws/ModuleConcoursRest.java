@@ -3,6 +3,7 @@ package com.fstg.TP2.ws;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.fstg.TP2.bean.ModuleConcours;
 import com.fstg.TP2.service.facade.ModuleConcoursService;
 
 @RestController
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RequestMapping("concours-api/module-concours")
 public class ModuleConcoursRest {
 
@@ -35,6 +37,11 @@ public class ModuleConcoursRest {
 	public ModuleConcours findByConcoursReference(@PathVariable String reference) {
 		return moduleConcoursService.findByConcoursReference(reference);
 	}
+	
+	@GetMapping("/concours/annee/{annee}")
+	public ModuleConcours findByConcoursAnnee(@PathVariable int annee) {
+		return moduleConcoursService.findByConcoursAnnee(annee);
+	}
 
 	@GetMapping("/concours/reference/{reference}/module/libelle/{libelle}")
 	public ModuleConcours findByConcoursReferenceAndModuleLibelle(@PathVariable String reference,
@@ -52,9 +59,9 @@ public class ModuleConcoursRest {
 		return moduleConcoursService.deleteByModuleLibelle(libelle);
 	}
 
-	@PostMapping("/reference/{reference}")
-	public void save(@PathVariable String reference,@RequestBody List<ModuleConcours> modulesConcours) {
-		moduleConcoursService.save(reference, modulesConcours);
-	}
+//	@PostMapping("/reference/{reference}")
+//	public void save(@PathVariable String reference,@RequestBody List<ModuleConcours> modulesConcours) {
+//		moduleConcoursService.save(reference, modulesConcours);
+//	}
 
 }
