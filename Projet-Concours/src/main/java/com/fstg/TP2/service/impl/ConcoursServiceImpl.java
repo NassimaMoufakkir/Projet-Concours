@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Concours;
+import com.fstg.TP2.bean.ModuleConcours;
 import com.fstg.TP2.dao.ConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;
+import com.fstg.TP2.service.facade.ModuleConcoursService;
 
 @Service
 public class ConcoursServiceImpl implements ConcoursService {
@@ -18,6 +20,8 @@ public class ConcoursServiceImpl implements ConcoursService {
 	private ConcoursDao concoursDao;
 	@Autowired
 	private ConfigConcoursService configConcoursService;
+	@Autowired
+	private ModuleConcoursService moduleConcoursService;
 
 	@Override
 	public Concours findByReference(String reference) {
@@ -38,6 +42,7 @@ public class ConcoursServiceImpl implements ConcoursService {
 
 		else {
 			concoursDao.save(concours);
+			moduleConcoursService.save(concours, concours.getModuleConcourss());
 			return 1;
 		}
 	}

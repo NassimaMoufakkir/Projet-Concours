@@ -34,12 +34,12 @@ public class ModuleConcoursRest {
 	}
 
 	@GetMapping("/concours/reference/{reference}")
-	public ModuleConcours findByConcoursReference(@PathVariable String reference) {
+	public List<ModuleConcours> findByConcoursReference(@PathVariable String reference) {
 		return moduleConcoursService.findByConcoursReference(reference);
 	}
 	
 	@GetMapping("/concours/annee/{annee}")
-	public ModuleConcours findByConcoursAnnee(@PathVariable int annee) {
+	public List<ModuleConcours> findByConcoursAnnee(@PathVariable int annee) {
 		return moduleConcoursService.findByConcoursAnnee(annee);
 	}
 

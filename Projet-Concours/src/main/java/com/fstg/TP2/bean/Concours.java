@@ -1,16 +1,22 @@
 package com.fstg.TP2.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 //test
 @Entity
 public class Concours {
@@ -36,6 +42,9 @@ public class Concours {
 	private ConfigConcours configConcours;
 	@ManyToOne
 	private Filiere filiere;
+	@OneToMany(mappedBy = "concours")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private List<ModuleConcours> moduleConcourss = new ArrayList<ModuleConcours>();
 
 	public Concours() {
 		super();
@@ -43,7 +52,8 @@ public class Concours {
 
 	public Concours(Long id, int nbreEtudiantAdmisOrale, int nbreEtudiantAdmisEcrit, int nbreEtudiantAdmis,
 			String reference, int annee, String description, Date dateConcours, Date dateOrale, Date dateEcrit,
-			Date dateAffichageResultatFinal, ConfigConcours configConcours, Filiere filiere) {
+			Date dateAffichageResultatFinal, ConfigConcours configConcours, Filiere filiere,
+			List<ModuleConcours> moduleConcourss) {
 		super();
 		this.id = id;
 		this.nbreEtudiantAdmisOrale = nbreEtudiantAdmisOrale;
@@ -58,6 +68,7 @@ public class Concours {
 		this.dateAffichageResultatFinal = dateAffichageResultatFinal;
 		this.configConcours = configConcours;
 		this.filiere = filiere;
+		this.moduleConcourss = moduleConcourss;
 	}
 
 	public Date getDateConcours() {
@@ -162,6 +173,14 @@ public class Concours {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<ModuleConcours> getModuleConcourss() {
+		return moduleConcourss;
+	}
+
+	public void setModuleConcourss(List<ModuleConcours> moduleConcourss) {
+		this.moduleConcourss = moduleConcourss;
 	}
 
 }

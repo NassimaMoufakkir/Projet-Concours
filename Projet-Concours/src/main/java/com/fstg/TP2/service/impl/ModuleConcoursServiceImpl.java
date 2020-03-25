@@ -52,7 +52,7 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	}
 
 	@Override
-	public ModuleConcours findByConcoursReference(String reference) {
+	public List<ModuleConcours> findByConcoursReference(String reference) {
 		return moduleConcoursDao.findByConcoursReference(reference);
 	}
 
@@ -83,7 +83,7 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	}
 
 	@Override
-	public ModuleConcours findByConcoursAnnee(int annee) {
+	public List<ModuleConcours> findByConcoursAnnee(int annee) {
 		return moduleConcoursDao.findByConcoursAnnee(annee);
 
 	}
@@ -91,8 +91,13 @@ public class ModuleConcoursServiceImpl implements ModuleConcoursService {
 	@Override
 	public int save(Concours concours, List<ModuleConcours> modulesConcours) {
 		for (ModuleConcours moduleConcours : modulesConcours) {
-			moduleConcours.setConcours(concours);
-			moduleConcoursDao.save(moduleConcours);
+			Module module = moduleService.findByLibelle(moduleConcours.getModule().getLibelle());
+			if(module!=null) {
+				moduleConcours.setModule(module);
+				moduleConcours.setConcours(concours);
+				moduleConcoursDao.save(moduleConcours);
+			}
+			
 		}
 		return 1;
 	}
