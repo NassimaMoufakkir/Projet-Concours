@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fstg.TP2.bean.Concours;
-import com.fstg.TP2.bean.ModuleConcours;
 import com.fstg.TP2.dao.ConcoursDao;
 import com.fstg.TP2.service.facade.ConcoursService;
 import com.fstg.TP2.service.facade.ConfigConcoursService;

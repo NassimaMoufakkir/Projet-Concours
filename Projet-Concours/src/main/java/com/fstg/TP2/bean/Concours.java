@@ -10,14 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-//test
+
 @Entity
 public class Concours {
 
@@ -38,8 +37,8 @@ public class Concours {
 	private Date dateEcrit;
 	@Temporal(TemporalType.DATE)
 	private Date dateAffichageResultatFinal;
-	@OneToOne
-	private ConfigConcours configConcours;
+	@OneToMany(mappedBy = "concours")
+	private List<ConfigConcours> configConcours;
 	@ManyToOne
 	private Filiere filiere;
 	@OneToMany(mappedBy = "concours")
@@ -52,7 +51,7 @@ public class Concours {
 
 	public Concours(Long id, int nbreEtudiantAdmisOrale, int nbreEtudiantAdmisEcrit, int nbreEtudiantAdmis,
 			String reference, int annee, String description, Date dateConcours, Date dateOrale, Date dateEcrit,
-			Date dateAffichageResultatFinal, ConfigConcours configConcours, Filiere filiere,
+			Date dateAffichageResultatFinal, List<ConfigConcours> configConcours, Filiere filiere,
 			List<ModuleConcours> moduleConcourss) {
 		super();
 		this.id = id;
@@ -111,11 +110,11 @@ public class Concours {
 		this.annee = annee;
 	}
 
-	public ConfigConcours getConfigConcours() {
+	public List<ConfigConcours> getConfigConcours() {
 		return configConcours;
 	}
 
-	public void setConfigConcours(ConfigConcours configConcours) {
+	public void setConfigConcours(List<ConfigConcours> configConcours) {
 		this.configConcours = configConcours;
 	}
 

@@ -3,6 +3,7 @@ package com.fstg.TP2.ws;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.fstg.TP2.bean.TypeDiplome;
 import com.fstg.TP2.service.facade.TypeDiplomeService;
 
 @RestController
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RequestMapping("concours-api/type-diplome")
 public class TypeDiplomeRest {
 	@Autowired
