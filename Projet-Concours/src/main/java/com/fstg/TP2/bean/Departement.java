@@ -21,7 +21,6 @@ public class Departement {
 
 	public Departement() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Departement(Long id, String nom, String description, List<Filiere> filieres) {

@@ -30,8 +30,6 @@ public class Concours {
 	private int annee;
 	private String description;
 	@Temporal(TemporalType.DATE)
-	private Date dateConcours;
-	@Temporal(TemporalType.DATE)
 	private Date dateOrale;
 	@Temporal(TemporalType.DATE)
 	private Date dateEcrit;
@@ -50,7 +48,7 @@ public class Concours {
 	}
 
 	public Concours(Long id, int nbreEtudiantAdmisOrale, int nbreEtudiantAdmisEcrit, int nbreEtudiantAdmis,
-			String reference, int annee, String description, Date dateConcours, Date dateOrale, Date dateEcrit,
+			String reference, int annee, String description, Date dateOrale, Date dateEcrit,
 			Date dateAffichageResultatFinal, List<ConfigConcours> configConcours, Filiere filiere,
 			List<ModuleConcours> moduleConcourss) {
 		super();
@@ -61,7 +59,6 @@ public class Concours {
 		this.reference = reference;
 		this.annee = annee;
 		this.description = description;
-		this.dateConcours = dateConcours;
 		this.dateOrale = dateOrale;
 		this.dateEcrit = dateEcrit;
 		this.dateAffichageResultatFinal = dateAffichageResultatFinal;
@@ -70,13 +67,6 @@ public class Concours {
 		this.moduleConcourss = moduleConcourss;
 	}
 
-	public Date getDateConcours() {
-		return dateConcours;
-	}
-
-	public void setDateConcours(Date dateConcours) {
-		this.dateConcours = dateConcours;
-	}
 
 	public Date getDateOrale() {
 		return dateOrale;

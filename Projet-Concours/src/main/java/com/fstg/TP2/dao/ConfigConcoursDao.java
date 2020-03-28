@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.fstg.TP2.bean.ConfigConcours;
 
-//try
 
 @Repository
 public interface ConfigConcoursDao extends JpaRepository<ConfigConcours, Long> {
