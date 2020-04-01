@@ -10,5 +10,4 @@ public interface DepartementService {
 	Departement findByReference(String reference);
 	List<Departement> findAll();
 	public int deleteByReference(String reference);
-	int save(Departement departement , List<Filiere> filieres);
 }

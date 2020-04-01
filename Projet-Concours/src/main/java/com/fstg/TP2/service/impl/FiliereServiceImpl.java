@@ -27,14 +27,12 @@ public class FiliereServiceImpl implements FiliereService {
 	}
 
 	@Override
-	public int save(Filiere filiere) {
-		Filiere foundedFiliere = findByLibelle(filiere.getLibelle());
-		if (foundedFiliere != null) {
-			return -1;
-		} else {
+	public int save(Departement departement , List<Filiere> filieres) {
+		for (Filiere filiere : filieres) {
+			filiere.setDepartement(departement);
 			filiereDao.save(filiere);
-			return 1;
 		}
+		return 1;
 	}
 
 	@Override
@@ -47,6 +45,16 @@ public class FiliereServiceImpl implements FiliereService {
 		}else {
 			return -1;
 		}
+	}
+
+	@Override
+	public List<Filiere> findByDepartementRefrence(String reference) {
+		return filiereDao.findByDepartementRefrence(reference);
+	}
+
+	@Override
+	public int deleteByDepartementReference(String reference) {
+		return filiereDao.deleteByDepartementRefrence(reference);
 	}
 
 }

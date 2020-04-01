@@ -11,12 +11,15 @@ import com.fstg.TP2.bean.Departement;
 import com.fstg.TP2.bean.Filiere;
 import com.fstg.TP2.dao.DepartementDao;
 import com.fstg.TP2.service.facade.DepartementService;
+import com.fstg.TP2.service.facade.FiliereService;
 
 @Service
 public class DepartementServiceImpl implements DepartementService {
 
 	@Autowired
 	private DepartementDao departementDao;
+	@Autowired
+	private FiliereService filiereService;
 
 	@Override
 	public Departement findByReference(String reference) {
@@ -35,6 +38,7 @@ public class DepartementServiceImpl implements DepartementService {
 			return -1;
 		} else {
 			departementDao.save(departement);
+			filiereService.save(departement, departement.getFilieres());
 			return 1;
 		}
 	}
@@ -44,17 +48,11 @@ public class DepartementServiceImpl implements DepartementService {
 	public int deleteByReference(String reference) {
 		Departement foundedDepartement = findByReference(reference);
 		if(foundedDepartement!=null) {
-			int resDepartemen = departementDao.deleteByRefrence(reference);
-			return resDepartemen;
+			int res1 = filiereService.deleteByDepartementReference(reference);
+			int res2 = departementDao.deleteByRefrence(reference);
+			return res1+res2;
 		}else {
 			return -1;
 		}
 	}
-
-	@Override
-	public int save(Departement departement, List<Filiere> filieres) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
